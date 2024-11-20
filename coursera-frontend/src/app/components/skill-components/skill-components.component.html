@@ -1,0 +1,182 @@
+<div class="container-fluid background">
+  <div>
+    <a href="#">
+      <img
+        class="logo-coursera"
+        alt="coursera"
+        src="../../../assets/brand/coursera-logo-full-rgb.svg"
+      />
+    </a>
+  </div>
+  <div class="resolution">
+    <img class="img-avatar" src="../../../assets/image/avatar.png" alt="" />
+    <img class="img-hat" src="../../../assets/image/università.png" alt="" />
+    <h2 class="text-h2 mt-4">Le Tue Competenze</h2>
+
+    <form
+      class="mt-4"
+      [formGroup]="skillsForm"
+      (ngSubmit)="saveAndGoToSummary()"
+    >
+      <div class="mb-4">
+        <h5>Esperienze Lavorative</h5>
+        <textarea
+          formControlName="workExperience"
+          class="form-control mb-3"
+          rows="3"
+          placeholder="Descrivi le tue esperienze lavorative..."
+        ></textarea>
+      </div>
+
+      <div class="mb-4">
+        <h5>Titoli di Studio</h5>
+        <div formArrayName="educationFields">
+          <div
+            class="education-entry card mb-3 p-3"
+            *ngFor="let education of educationFields.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <input
+                  type="text"
+                  formControlName="degree"
+                  class="form-control"
+                  placeholder="Titolo/Laurea"
+                />
+              </div>
+              <div class="col-md-6 mb-2">
+                <input
+                  type="text"
+                  formControlName="institution"
+                  class="form-control"
+                  placeholder="Istituzione"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <input
+                  type="text"
+                  formControlName="website"
+                  class="form-control"
+                  placeholder="Sito Web"
+                />
+                <div
+                  *ngIf="
+                    education.get('website')?.hasError('invalidUrl') &&
+                    education.get('website')?.touched
+                  "
+                  class="text-danger"
+                >
+                  Inserisci un link valido del tipo "www.esempio.dominio".
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-2">
+                <input
+                  type="number"
+                  formControlName="grade"
+                  class="form-control"
+                  placeholder="Voto"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-danger btn-sm mt-2"
+              (click)="removeEducationField(i)"
+            >
+              Rimuovi
+            </button>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn btn-secondary btn-sm mt-2"
+          (click)="addEducationField()"
+        >
+          Aggiungi un altro
+        </button>
+      </div>
+
+      <div class="mb-4">
+        <h5>Certificazioni</h5>
+        <textarea
+          formControlName="certifications"
+          class="form-control mb-3"
+          rows="3"
+          placeholder="Elenca le tue certificazioni..."
+        ></textarea>
+      </div>
+
+      <div class="mb-4">
+        <h5>Occupazione Attuale</h5>
+        <input
+          type="text"
+          formControlName="currentOccupation"
+          class="form-control"
+          placeholder="Posizione attuale"
+        />
+      </div>
+
+      <div class="mb-4">
+        <h5>Note Aggiuntive</h5>
+        <textarea
+          formControlName="notes"
+          class="form-control"
+          rows="3"
+          placeholder="Note o lettere aggiuntive..."
+        ></textarea>
+      </div>
+
+      <div class="mb-4">
+        <h5>Caricamento Documenti</h5>
+        <input
+          type="file"
+          (change)="onFilesAdded($event)"
+          class="form-control mb-3"
+          multiple
+        />
+      </div>
+
+      <div
+        *ngFor="let file of skillsForm.value.files; let i = index"
+        class="document-preview mt-3"
+      >
+        <h6>{{ file.name }}</h6>
+        <div *ngIf="file.type.startsWith('image')">
+          <img
+            [src]="file.url"
+            alt="Anteprima Immagine"
+            width="100"
+            height="100"
+            class="img-thumbnail"
+          />
+        </div>
+        <div *ngIf="file.type === 'application/pdf'">
+          <object
+            [data]="file.url"
+            type="application/pdf"
+            width="100%"
+            height="400"
+          >
+            Il tuo browser non supporta l'anteprima PDF.
+            <a [href]="file.url" target="_blank">Apri PDF</a>
+          </object>
+        </div>
+        <button
+          type="button"
+          class="btn btn-danger btn-sm mt-2"
+          (click)="removeFile(i)"
+        >
+          Rimuovi
+        </button>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-4 w-100">
+        Salva e Visualizza Riepilogo
+      </button>
+    </form>
+  </div>
+</div>

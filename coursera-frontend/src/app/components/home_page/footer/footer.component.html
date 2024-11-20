@@ -1,0 +1,131 @@
+<footer class="footer-main container-fluid">
+  <div class="container">
+    <div class="Vp-footer">
+        <div class="footer-Inner-div">
+
+            
+          <!-- SEZIONE 1-->
+          <div class="footer-column">
+            <p>Iniziare con l'AI</p>
+            <ul>
+              <li *ngFor="let link of ia">
+                <a [href]="link.url">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+
+  
+          <!-- SEZIONE 2 -->
+          <div class="footer-column">
+            <p>Certificati di carriera popolari</p>
+            <ul>
+              <li *ngFor="let link of career">
+                <a [href]="link.url">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+
+  
+          <!-- SEZIONE 3 -->
+          <div class="footer-column">
+            <p>Soggetti popolari</p>
+            <ul>
+              <li *ngFor="let link of subjects">
+                <a [href]="link.url">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+
+  
+          <!-- SEZIONE 4 -->
+          <div class="footer-column">
+            <p>Risorse popolari</p>
+            <ul>
+              <li *ngFor="let link of resources">
+                <a [href]="link.url">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+  
+          <!-- SEZIONE 5-->
+          <div class="footer-column">
+            <p>Coursera</p>
+            <ul>
+              <li *ngFor="let link of courseraLinks">
+                <a [href]="link.url">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+  
+          <!-- SEZIONE 6 -->
+          <div class="footer-column">
+            <p>Community</p>
+            <ul>
+              <li *ngFor="let link of community">
+                <a [href]="link.url">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+  
+          <!-- SEZIONE 7-->
+          <div class="footer-column">
+            <p>More</p>
+            <ul>
+              <li *ngFor="let link of moreLinks">
+                <a [href]="link.url">{{ link.text }}</a>
+              </li>
+            </ul>
+          </div>
+  
+          <!-- SEZIONE 8 -->
+          <div class="footer-column" id="footer-store">
+           <div class="footer-badge mb-2"> <p class="hidden-p">Impara ovunque ti trovi</p>
+            <div class="column">
+              <div class="image-container">
+                  <a class="d-flex gap-4 mb-4" href="#">
+                      <img class="img1" [src]="links[0].src">
+                  </a>
+                  <div class="mt-4">
+                      <a href="#">
+                          <img class="img2" [src]="links[1].src1">
+                      </a>
+                  </div>
+              </div>
+              <div class="mt-4-custom ms-4">
+                  <a href="#">
+                      <img class="img3" [src]="links[2].src2">
+                  </a>
+              </div>
+          </div>
+          
+          
+
+           </div>
+          </div>
+        </div>
+
+        <!-- SEZIONE 9 -->
+        <hr>
+        <div class="d-flex footer-end">
+          <div class="coursera-inc">© 2024 Coursera Inc. Tutti i diritti riservati.</div>
+          <div>
+            <ul class="ul-custom list-unstyled d-flex gap-4 mt-2 margin-social" *ngFor="let social of socialMedia">
+                <li><a [href]="social.href"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/facebook.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40" alt=""></a></li>
+                <li><a [href]="social.href1"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/linkedin.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40" alt=""></a></li>
+                <li><a [href]="social.href2"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/twitter.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40" alt=""></a></li>
+                <li><a [href]="social.href3"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/youtube.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40" alt=""></a></li>
+                <li><a [href]="social.href4"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://s3.amazonaws.com/coursera_assets/footer/instagram.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40" alt=""></a></li>
+                <li><a [href]="social.href5"><img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera_assets.s3.amazonaws.com/images/9b7e964107839c77644d7e7d15035b73.png?auto=format%2Ccompress&dpr=1&w=28&h=28&q=40" alt=""></a></li>
+            </ul>
+          </div>
+          <div>
+            <div *ngFor="let social of socialLinks">
+              <a [href]="social.url">
+                <img [src]="social.src" [alt]="social.alt">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  </footer>

@@ -1,0 +1,23 @@
+.tcs2-banckground{
+background: #f2f4fa;
+min-height: 559px;
+}
+
+.tcs2-SezSSTitle{
+    color:rgb(31,31,31);
+    font-weight: lighter;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.tcs2-height {
+    min-height: 224px;
+    border: none;
+}
+
+@media screen and (min-width:992px) {
+    .tcs2-height {
+        height: 330px;
+    }
+};
+    

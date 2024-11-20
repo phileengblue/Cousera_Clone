@@ -1,0 +1,15 @@
+.divider {
+    border-top: 1px solid #bbb;
+}
+
+.search-text-description{
+    color: #373a3c;
+  }
+  
+  .search-text-subcategory{
+    color:  #63676b;
+  }
+
+.link-Uni {
+  text-decoration: none;
+}

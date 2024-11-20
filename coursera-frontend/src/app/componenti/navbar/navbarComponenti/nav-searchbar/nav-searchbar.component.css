@@ -1,0 +1,53 @@
+.global-search-item {
+  display: flex;
+  height: auto;
+}
+
+.global-search-item:active {
+  background-color: #f2f8ff;
+}
+
+.global-search-item-desc {
+  flex: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.global-search-item-count {
+  flex: none;
+}
+
+.inputSearchBarCass {
+  background-color: #fff;
+}
+
+.inputSearchBarCass:active {
+  background-color: #f2f8ff;
+}
+
+.navbar-search {
+  width: 326px;
+  border-start-start-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-start-end-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.search-text-description {
+  color: #373a3c;
+}
+
+.search-text-subcategory {
+  color: #63676b;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+.dropendImg {
+  width: 36px !important;
+  height: 36px !important;
+
+}

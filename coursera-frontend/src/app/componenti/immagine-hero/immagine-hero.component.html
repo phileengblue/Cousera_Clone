@@ -1,0 +1,174 @@
+<div class="container-lg">
+  <div class="row card border-0">
+    <div class="row align-items-center ju">
+      <div class="col-12 col-lg-7 card-body">
+        <div class="row">
+          <h5 class="card-title szHero_s64h64w600">Impara senza limiti</h5>
+          <p class="card-text btn-hero_margin szHero_s20h24w400 ">Avvia, cambia o fai progredire la tua carriera con
+            oltre 7.000 corsi,
+            certificati professionali e lauree rilasciate da università e aziende di fama mondiale.</p>
+          <div>
+            <a class="btn btn-primary btn-hero" (click)="showModalSignIn()" [hidden]="isLoggedIn()">Iscriviti</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 ifVisible">
+        <div class="row d-flex justify-content-center">
+          <img class="container-hero_img" [src]="urlImgHero" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Registarti -->
+<nz-modal [nzCentered]="true" [(nzVisible)]="isVisibleSignIn" nzTitle="Iscriviti" [nzFooter]="null"
+  (nzOnCancel)="handleCancel()">
+  <form nz-form [formGroup]="signinForm" (ngSubmit)="handleSubmitSignIn()">
+    <div *nzModalContent class="d-flex flex-column gap-2">
+      <label class="label-custom" for="firstname">Nome</label>
+      <input type="firstname" id="firstname" formControlName="firstname" placeholder="Nome" id="firstname"
+        class="btn-custom" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['firstname'].errors &&
+            fSignIn['firstname'].touched
+        }" />
+
+      <!-- CONTROLLI FIRST NAME -->
+      <div *ngIf="submittedSignIn && fSignIn['firstname'].errors">
+        <div class="text-danger" *ngIf="fSignIn['firstname'].errors['required']">
+          Nome richiesto
+        </div>
+      </div>
+
+      <label class="label-custom" for="lastname">Cognome</label>
+      <input type="lastname" id="lastname" formControlName="lastname" placeholder="Cognome" id="lastname"
+        class="btn-custom" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['lastname'].errors &&
+            fSignIn['lastname'].touched
+        }" />
+
+      <!-- CONTROLLI LAST NAME -->
+      <div *ngIf="submittedSignIn && fSignIn['lastname'].errors">
+        <div class="text-danger" *ngIf="fSignIn['lastname'].errors['required']">
+          Cognome richiesto
+        </div>
+      </div>
+
+      <label class="label-custom" for="email">Email</label>
+      <input type="email" id="email" placeholder="example@email.com" formControlName="email" id="email"
+        class="btn-custom" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['email'].errors &&
+            fSignIn['email'].touched
+        }" />
+
+      <!-- CONTROLLI EMAIL -->
+      <div *ngIf="submittedSignIn && fSignIn['email'].errors">
+        <div class="text-danger" *ngIf="fSignIn['email'].errors['required']">
+          Email è richiesta
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['email'].errors['email']">
+          Email non valida
+        </div>
+      </div>
+
+      <label class="label-custom" for="password">Password</label>
+      <div class="password-container">
+        <input class="btn-custom" id="password" placeholder="Inserisci la password" minlength="8"
+          formControlName="password" [type]="passwordService.showPassword ? 'password' : 'text'" required [ngClass]="{
+            'is-invalid':
+              submittedSignIn &&
+              fSignIn['password'].errors &&
+              fSignIn['password'].touched
+          }" />
+
+        <!-- TOGGLE PASSWORD -->
+        <button type="button" (click)="togglePasswordVisibility()" class="form-input">
+          <img [src]="
+              passwordService.showPassword
+                ? '../../assets/images/eye-invisible.svg'
+                : '../../assets/images/eye-visible.svg'
+            " alt="{{ passwordService.showPassword }}" class="icon-custom" />
+        </button>
+      </div>
+
+      <!-- CONTROLLI PASSWORD -->
+      <div *ngIf="submittedSignIn && fSignIn['password'].errors">
+        <div class="text-danger" *ngIf="fSignIn['password'].errors['required']">
+          Password è richiesta
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['password'].errors['minlength']">
+          La password deve essere minima 8 caratteri
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['password'].errors['pattern']">
+          La password deve contenere carattere speciali, numeri, lettere
+          minuscole e maiuscole
+        </div>
+      </div>
+
+      <label for="number" class="label-custom">Numero di telefono</label>
+      <input type="text" maxlength="10" pattern="^[0-9]+$" placeholder="Numero" id="number" class="btn-custom"
+        formControlName="phone_number" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['phone_number'].errors &&
+            fSignIn['phone_number'].touched
+        }" />
+
+      <!-- CONTROLLI NUMERO DI TELEFONO -->
+      <div *ngIf="submittedSignIn && fSignIn['phone_number'].errors">
+        <div class="text-danger" *ngIf="fSignIn['phone_number'].errors['required']">
+          Numero di telefono richiesto
+        </div>
+
+        <div class="text-danger" *ngIf="fSignIn['phone_number'].errors['pattern']">
+          Numero di telefono non valido
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['phone_number'].errors['maxlength']">
+          Numero di telefono non valido
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column gap-2">
+          <label for="birth" class="label-custom">Data di nascita</label>
+          <nz-date-picker formControlName="birth_date" id="birth" [nzPlaceHolder]="'dd-mm-yyyy'" nzFormat="dd-MM-yyyy"
+            [nzDisabledDate]="disableDates" [nzDefaultPickerValue]="eighteenYearsAgo"></nz-date-picker>
+
+          <!-- CONTROLLI DATA DI NASCITA -->
+          <div *ngIf="submittedSignIn && fSignIn['birth_date'].errors" class="text-danger">
+            <div *ngIf="fSignIn['birth_date'].errors['required']">
+              Data di nascita obbligatoria
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+          <label for="gender" class="label-custom">Gender</label>
+          <nz-select formControlName="gender" nzPlaceHolder="Scegli gender" id="gender">
+            <nz-option *ngFor="let setGender of genders" [nzValue]="setGender.value"
+              [nzLabel]="setGender.label"></nz-option>
+          </nz-select>
+
+          <!-- CONTROLLI GENDER -->
+          <div *ngIf="submittedSignIn && fSignIn['gender'].errors" class="text-danger">
+            <div *ngIf="fSignIn['gender'].errors['required']">
+              Gender obbligatorio
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button nz-button nzType="primary" (click)="handleSubmitSignIn()" [nzLoading]="isSubmittingSignIn"
+        class="btn-save">
+        Registrati
+      </button>
+    </div>
+  </form>
+</nz-modal>

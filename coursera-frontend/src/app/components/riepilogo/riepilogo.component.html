@@ -1,0 +1,80 @@
+<div class="container-fluid thank-you-background">
+  <div class="summary-content">
+    <h2 class="text-h2">Riepilogo delle Tue Competenze</h2>
+
+    <div *ngIf="skillsData">
+      <div>
+        <h5>Esperienze Lavorative:</h5>
+        <p *ngIf="!isEditing">{{ skillsData.workExperience || 'Nessuna esperienza lavorativa fornita' }}</p>
+        <textarea *ngIf="isEditing" [(ngModel)]="editableData.workExperience" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div>
+        <h5>Titoli di Studio:</h5>
+        <div *ngFor="let education of editableData.educationFields; let i = index" class="education-entry">
+          <div *ngIf="!isEditing">
+            <p><strong>Titolo di Laurea:</strong> {{ education.degree || 'Non specificato' }}</p>
+            <p><strong>Istituzione:</strong> {{ education.institution || 'Non specificato' }}</p>
+            <p><strong>Sito Web:</strong> 
+              <a [href]="education.website" target="_blank">{{ education.website || 'Non specificato' }}</a>
+            </p>
+            <p><strong>Voto:</strong> {{ education.grade || 'N/A' }}</p>
+          </div>
+          <div *ngIf="isEditing">
+            <input [(ngModel)]="education.degree" placeholder="Titolo/Laurea" class="form-control mb-2">
+            <input [(ngModel)]="education.institution" placeholder="Istituzione" class="form-control mb-2">
+            <input [(ngModel)]="education.website" placeholder="Sito Web" class="form-control mb-2" type="url">
+            <input [(ngModel)]="education.grade" placeholder="Voto" class="form-control" type="number">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h5>Certificazioni:</h5>
+        <p *ngIf="!isEditing">{{ skillsData.certifications || 'Nessuna certificazione fornita' }}</p>
+        <textarea *ngIf="isEditing" [(ngModel)]="editableData.certifications" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div>
+        <h5>Occupazione Attuale:</h5>
+        <p *ngIf="!isEditing">{{ skillsData.currentOccupation || 'Non specificato' }}</p>
+        <input *ngIf="isEditing" [(ngModel)]="editableData.currentOccupation" class="form-control" placeholder="Posizione attuale">
+      </div>
+
+      <div>
+        <h5>Note Aggiuntive:</h5>
+        <p *ngIf="!isEditing">{{ skillsData.notes || 'Nessuna nota aggiuntiva' }}</p>
+        <textarea *ngIf="isEditing" [(ngModel)]="editableData.notes" class="form-control" rows="3"></textarea>
+      </div>
+
+      <div>
+        <h5>Documenti Caricati:</h5>
+        <div *ngFor="let file of editableData.files; let i = index" class="document-preview mt-3">
+          <h6>{{ file.name }}</h6>
+          <div *ngIf="file.type.startsWith('image')">
+            <img [src]="file.url" alt="Anteprima Immagine" width="100" height="100" class="img-thumbnail" />
+          </div>
+          <div *ngIf="file.type === 'application/pdf'">
+            <object [data]="file.url" type="application/pdf" width="100%" height="400">
+              Il tuo browser non supporta l'anteprima PDF.
+              <a [href]="file.url" target="_blank">Apri PDF</a>
+            </object>
+          </div>
+          <button *ngIf="isEditing" class="btn btn-danger btn-sm mt-2" (click)="removeFile(i)">Rimuovi</button>
+        </div>
+        <div *ngIf="isEditing" class="mt-3">
+          <input type="file" (change)="onFileAdd($event)" class="form-control" multiple />
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button *ngIf="!isEditing" class="btn btn-primary button-modify" (click)="enableEditing()">Modifica</button>
+        <button *ngIf="isEditing" class="btn btn-success button-save" (click)="saveChanges()">Salva</button>
+        <button *ngIf="isEditing" class="btn btn-secondary button-cancel" (click)="cancelEditing()">Annulla</button>
+        <button class="btn btn-warning button-home" (click)="navigateToSkillsComponent()">Torna alla Home</button>
+      </div>
+    </div>
+  </div>
+
+  <button *ngIf="showResetButton" class="btn btn-danger position-reset fade-in" (click)="resetData()">Resetta Dati</button>
+</div>

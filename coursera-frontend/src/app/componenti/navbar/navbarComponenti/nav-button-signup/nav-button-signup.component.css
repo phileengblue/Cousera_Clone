@@ -1,0 +1,10 @@
+.btn-navbar {
+    color: #0d6efd;
+    background-color: #fff;
+  }
+  
+  .btn-navbar:hover, :active, :disabled {
+    color: #0d6efd;
+    background-color: #f2f8ff;
+    border-color: #0a58ca;
+  }

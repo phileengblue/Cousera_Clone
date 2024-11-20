@@ -1,0 +1,231 @@
+.py-mod {
+
+    padding-top: 4rem;
+    padding-bottom: 10rem;
+}
+
+
+
+.modal-mod{
+
+    position: relative;
+    z-index: 2;
+    bottom: 47px;
+    opacity: 0;
+    right: 57px;
+}
+
+
+
+
+.img-modify {
+
+    position: relative;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.img-custom{
+
+    padding: 45px 0px;
+
+
+}
+
+.h2-mod {
+
+    color: rgb(31, 31, 31);
+    font-size: 44px;
+    letter-spacing: -0.01em;
+    line-height: 56px;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+
+
+}
+
+.p-modify {
+
+    padding: 18px 95px;
+    position: relative;
+    top: 72px;
+    right: 70px;
+}
+
+.p-paragraph{
+
+    color: rgb(31, 31, 31);
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    line-height: 24px;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.btn-modify{
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: -0.1px;
+    line-height: 24px;
+    width: 152px;
+    height: 48px;
+    padding: 0;
+    max-width: 320px;
+    background-color: #0056D2;
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-style: normal;
+}
+
+.clickable-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1; 
+  }
+  
+
+@media (max-width: 768px) {
+
+    .py-mod {
+
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
+
+    .flex-mobile {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .img-modify {
+
+        position: relative;
+        right: 82px;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        top: 55px;
+    }
+
+    .h2-mod {
+
+        color: rgb(31, 31, 31);
+        font-size: 44px;
+        letter-spacing: -0.01em;
+        line-height: 40px;
+        font-family: "Source Sans Pro", Arial, sans-serif;
+        font-style: normal;
+        font-weight: 600;
+
+
+    }
+
+    .p-paragraph{
+
+        margin-bottom: 38px;
+        max-width: 85%;
+        margin-top: 25px;
+    }
+
+    .p-modify {
+
+        padding: 18px 122px;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .btn-modify{
+
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: -0.1px;
+        line-height: 24px;
+        width: 152px;
+        height: 48px;
+        padding: 0;
+        max-width: 320px;
+        background-color: #0056D2;
+    }
+
+    .rc-SecondaryConsumerCta {
+        text-align: center;
+    }
+
+    .rc-SecondaryConsumerCta img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .py-mod {
+
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+    }
+
+    .img-modify{
+
+        
+        position: relative;
+        right: 50px;
+        display: flex;
+        justify-content: center;
+        width: 80%;
+        top: 0px;
+    }
+
+    .img-custom{
+
+        padding: 45px 0px;
+        width: 100%;
+        position: relative;
+        right: 0;
+        left: 20px;
+    
+    
+    }
+
+    .p-modify {
+
+        padding: 0 28px;
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+
+    .p-paragraph{
+
+        margin-bottom: 38px;
+        max-width: 100%;
+        margin-top: 25px;
+    }
+
+    .btn-modify{
+
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: -0.1px;
+        line-height: 24px;
+        width: 391px;
+        height: 49px;
+        padding: 0px;
+        max-width: 500px;
+        background-color: #0056D2;
+    }
+
+    .modal-mod{
+
+        left: 45px;
+    }
+
+}

@@ -1,0 +1,740 @@
+/* BLUE SECTION */
+
+.background-total {
+  background-color: #0056d2;
+  color: white;
+}
+
+.padding-modd {
+  padding: 35px 224px;
+}
+
+.container {
+  padding: 60px 0;
+}
+
+.position-move {
+
+  position: relative;
+  left: -9px;
+  top: 31px;
+}
+
+.title-section {
+
+  padding: 0 76px;
+  position: relative;
+  bottom: 70px;
+  right: -5px;
+}
+
+.title-section h2 {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 38px;
+  line-height: 48px;
+}
+
+.title-section p {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  letter-spacing: 0em;
+}
+
+.icon-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.padding-card {
+  padding: 0 64px;
+}
+
+.icon-container img {
+  width: 62px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.icon-title {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.icon-desc {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+/* BANNER SECTION */
+
+.university-logo {
+  padding: 11px 11px;
+  border-right: 1px solid #e8eef7;
+  border-bottom: 1px solid #e8eef7;
+  margin: 0px 2px;
+}
+
+.container-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logos-container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+}
+
+.melbourne-mod {
+  border-right: 1px solid #e8eef7;
+  border-bottom: none;
+  height: 0px;
+
+}
+
+.imperial-mod {
+
+  border-right: none !important;
+}
+
+.manipal-mod {
+  border-right: 1px solid #e8eef7;
+  border-bottom: 1px solid #e8eef7;
+  margin: 0px 2px;
+  height: 124px;
+  padding: 33px 6px;
+  border-bottom: none;
+}
+
+.nmims-mod {
+  border-right: 1px solid #e8eef7;
+  border-bottom: 1px solid #e8eef7;
+  margin: 0px 2px;
+  padding: 33px 26px;
+  border-right: none;
+  border-bottom: none;
+}
+
+
+.logos-container img {
+  max-width: 206px;
+  height: auto;
+}
+
+.text-container {
+  flex: 1;
+  text-align: left;
+  padding-left: 60px;
+  position: relative;
+  bottom: 45px;
+  left: 19px;
+}
+
+.h2-banner {
+
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 44px;
+  line-height: 44px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+
+
+}
+
+/* INFO LAYOUT COURSERA */
+
+.p-5-custom {
+
+  padding: 50px;
+}
+
+.background-layout {
+
+  background-color: #F2F5FA;
+}
+
+.testimonial {
+
+  position: relative;
+  right: 0px;
+  width: 50%;
+  left: 500px;
+}
+
+.h2-testimonial {
+  color: rgb(15, 17, 20);
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 44px;
+  line-height: 52px;
+  font-weight: 600;
+  width: 92%;
+
+
+}
+
+.quote-icon {
+  color: rgb(15, 17, 20);
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 80px;
+  line-height: 36px;
+  font-weight: 600;
+  position: relative;
+  right: 61px;
+
+}
+
+.p-modding {
+
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 400;
+  letter-spacing: 0em;
+  width: 87%;
+  position: relative;
+  bottom: 50px;
+
+
+}
+
+.paragr-1 {
+
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+.paragr-2 {
+
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin-bottom: 0px;
+}
+
+.paragr-3 {
+
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  margin-bottom: 0px;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+  /* BLUE SECTION */
+
+  .background-total {
+    height: 1061px;
+    width: 773px;
+  }
+
+  .padding-modd {
+    padding: 50px 34px;
+  }
+
+  .position-move {
+
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .title-section {
+    position: relative;
+    bottom: 182px;
+    padding: 0 18px;
+    right: 0;
+  }
+
+  .icon-title {
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 0.5rem;
+    line-height: 20px;
+  }
+
+  .icon-container img {
+    width: 56px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .title-section h2 {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 48px;
+  }
+
+  .col-md-6-custom {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .position-768 {
+    position: relative;
+    right: 34px;
+  }
+
+  .padding-card {
+    padding: 0 28px;
+  }
+
+  .title-section p {
+
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    letter-spacing: 0em;
+  }
+
+  .icon-desc {
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+
+
+  }
+
+  /* BANNER SECTION */
+
+  .university-logo {
+    padding: 23px 10px;
+    border-right: 1px solid #e8eef7;
+    border-bottom: 1px solid #e8eef7;
+    margin: 0px 0px;
+  }
+
+
+
+  .container-custom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+  }
+
+  .logos-container {
+    order: 1;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+  }
+
+  .text-container {
+    order: 2;
+    width: 50%;
+    padding-left: 0;
+    text-align: left;
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  .logos-container img {
+    max-width: 108px;
+  }
+
+  .melbourne-mod {
+    border-right: 1px solid #e8eef7;
+    border-bottom: none;
+    height: 116px !important;
+
+  }
+
+  .manipal-mod {
+    border-right: 1px solid #e8eef7;
+    margin: 0px 0px;
+    height: 111px !important;
+    padding: 41px 6px;
+    border-bottom: none;
+  }
+
+  .nmims-mod {
+    margin: 0px 0px;
+    height: 104px !important;
+    padding: 34px 6px;
+    border-bottom: none;
+    border-right: none;
+
+  }
+
+  .h2-banner {
+
+
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    padding: 0 28px;
+    position: relative;
+    bottom: 40px;
+
+
+  }
+
+  /* INFO LAYOUT COURSERA */
+
+  .p-5-custom {
+
+    padding: 25px;
+  }
+
+  .testimonial {
+
+    position: relative;
+    right: 30px;
+    width: 100%;
+    left: 0px;
+  }
+
+  .h2-testimonial {
+
+    font-size: 36px;
+    line-height: 48px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    width: 100%;
+
+
+  }
+
+  .quote-icon {
+
+    font-size: 48px;
+    line-height: 48px;
+    font-weight: 600;
+    position: relative;
+    right: 30px;
+
+
+  }
+
+  .p-modding {
+
+
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    width: 106%;
+    position: relative;
+    bottom: 50px;
+
+
+  }
+
+  .disclaimer {
+
+    position: relative;
+    left: 0px;
+    bottom: 20px;
+  }
+
+  .logo-disclaimer {
+
+    width: 100px;
+  }
+
+  .paragr-1 {
+
+
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 5px;
+  }
+
+  .paragr-2 {
+
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0px;
+  }
+
+  .paragr-3 {
+
+
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+
+
+  .background-total {
+    height: 1158px;
+    width: 441px;
+  }
+
+  .padding-card {
+    padding: 0 0;
+  }
+
+  .position-move {
+
+    position: relative;
+    left: 0;
+    top: 0;
+  }
+
+  .title-section {
+    position: relative;
+    bottom: 22px;
+    padding: 45px 0px;
+    right: 0;
+  }
+
+  .title-section h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 36px;
+  }
+
+  .title-section p {
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0em;
+  }
+
+  .col-md-6-custom {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* BANNER SECTION */
+
+  .container-custom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .text-container {
+    order: 1;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 0px;
+    left: 0px;
+  }
+
+  .h2-banner {
+
+
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    padding: 0 28px;
+    position: relative;
+    bottom: 35px;
+
+
+  }
+
+  .logos-container {
+    order: 2;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .logos-container img {
+    max-width: 114px;
+  }
+
+  .melbourne-mod {
+
+    height: 83px !important;
+    border-bottom: none;
+
+
+
+  }
+
+  .manipal-mod {
+    border-right: 1px solid #e8eef7;
+    margin: 0px 3px;
+    height: 92px !important;
+    padding: 31px 6px;
+    border-bottom: none
+  }
+
+  .nmims-mod {
+    margin: 0px 3px;
+    height: 93px !important;
+    padding: 28px 7px;
+    border-bottom: none;
+    border-right: none;
+
+  }
+
+
+  .university-logo {
+    padding: 5px 6px;
+    border-right: 1px solid #e8eef7;
+    border-bottom: 1px solid #e8eef7;
+    margin: 2px 3px;
+  }
+
+  /* INFO LAYOUT COURSERA */
+
+  .background-layout{
+
+    width: 440px;
+  }
+
+  .p-5-custom {
+
+    padding: 30px;
+  }
+
+  .pt-480 {
+
+    padding-top: 70px !important;
+  }
+
+  .testimonial {
+    width: 100%;
+    right: 19px;
+    bottom: 40px;
+    left: 0px;
+  }
+
+  .h2-testimonial {
+
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 600;
+    letter-spacing: -0.1px;
+    width: 100%;
+
+
+  }
+
+  .quote-icon {
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    position: relative;
+    right: 7px;
+    bottom: 12px;
+
+
+  }
+
+  .p-modding {
+
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: 0em;
+    width: 101%;
+    position: relative;
+    bottom: 50px;
+
+
+  }
+
+  .disclaimer {
+
+    position: relative;
+    left: 0px;
+    bottom: 37px;
+  }
+
+  .logo-disclaimer {
+
+    width: 100px;
+    position: relative;
+    bottom: 23px;
+  }
+
+  .paragr-1 {
+
+
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 5px;
+  }
+
+  .paragr-2 {
+
+
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0px;
+  }
+
+  .paragr-3 {
+
+
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0px;
+  }
+}

@@ -1,0 +1,63 @@
+@media screen and (min-width: 990px) {
+    .menu-100vw {
+        width: 65vw;
+    }
+
+    .menu-100vh {
+        max-height: 100vh;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .dropdown-menu {
+        border: none
+    }    
+}
+
+.dropdown-submenu {
+    position: static;
+}
+
+.dropdown-submenu .dropdown-menu {
+    top: 0;
+    left: 100%;
+}
+
+.dropdown-submenu:hover .dropdown-menu {
+    display: block;
+}
+
+
+.btn-navbar {
+    color: #0d6efd;
+    background-color: #fff;
+}
+
+.btn-navbar:hover,
+:active,
+:disabled {
+    color: #0d6efd;
+    background-color: #f2f8ff;
+    border-color: #0a58ca;
+}
+
+.scrollable {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.list-group-item {
+    border: none
+}
+
+ul {
+    list-style-type: none;
+}
+
+.nbBER-linkcolor{
+color: #40a9ff;
+}
+
+.nbBET-ActiveBG:active {
+    background-color: #ffffff;
+}

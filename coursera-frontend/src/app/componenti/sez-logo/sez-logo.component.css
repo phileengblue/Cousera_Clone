@@ -1,0 +1,28 @@
+.bg-fluid {
+    background-color: rgb(245, 245, 245);
+    min-height: 299px; 
+}
+
+.col-img_WH {
+    width: auto;
+  }
+  
+.linkColor {
+    color: #0058d4;
+    text-decoration: none;
+    &:active {
+      text-decoration:underline;
+    }
+  }
+
+  @media screen and (max-width: 990px) {
+ 
+    .col-img_WH {
+      width: 25%;
+      
+    }
+    
+    .img-m-100{
+      max-width: 89%;
+    }
+  }

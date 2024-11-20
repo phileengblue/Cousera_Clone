@@ -1,0 +1,54 @@
+<div class="container py-4">
+  <div class="row">
+    <div class="col-12 col-md-6 d-flex align-items-center p-moving">
+      <h2 class="text-center-custom text-md-start">{{ courseText }}</h2>
+    </div>
+    <div class="col-12 col-md-6 d-flex justify-content-center">
+      <img [src]="courseImg" alt="Trenta loghi di università famose" class="img-fluid-custom">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid py-5">
+  <div class="row align-items-center background-custom">
+    <div class="col-md-6 text-section">
+      <img [src]="academyImg" alt="C4C Career Academy" class="img-fluid hero-img">
+    </div>
+    <div class="col-md-6 hero-section">
+      <p class="text-muted p-class">Career Academy</p>
+      <h3 class="h3-custom">{{ careerAcademyText }}</h3>
+      <p class="p-custom">{{ descriptionText }}</p>
+      <p class="p-custom">Con Career Academy, i tuoi studenti potranno:</p>
+      <ul class="list-unstyled ul-padding">
+        <li *ngFor="let item of [
+            'Ottieni un certificato professionale progettato per prepararli al lavoro.',
+            'Acquisisci le competenze professionali più comuni richieste dai datori di lavoro.',
+            'Dimostra la padronanza delle competenze con un portfolio di lavoro.',
+            'Esplora una gamma di ruoli richiesti in tutti i settori industriali.'
+          ]" class="d-flex align-items-start mb-2 li-custom">
+          <svg aria-hidden="true" fill="none" height="16" viewBox="0 0 16 16" width="16" class="custom-list-icon me-2">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.74 3.672L6.225 14.168.323 8.736l1.354-1.472 4.419 4.068 8.163-9.004 1.482 1.344z" fill="currentColor"></path>
+          </svg>
+          {{ item }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid custom-container mt-5-custom">
+  <div class="row">
+    <div class="col-md-8 container-video-description">
+      <p class="p-custom-video">{{ certificateTitle }}</p>
+      <h2 class="display-6 h2 letter-spacing-custom position-modi">{{ videoTitle }}</h2>
+      <p class="p-custom-description">{{ videoDescription1 }}</p>
+      <p class="p-custom-description">{{ videoDescription2 }}</p>
+    </div>
+    <div class="col-md-4">
+      <div class="video-container">
+        <video #videoElement controls width="100%" height="auto" [src]="videoSrc" (play)="onVideoPlay()"></video>
+        <img *ngIf="!videoPlaying" [src]="videoThumbnail" alt="Micro-credenziali Video Thumb" class="video-thumbnail" (click)="playVideo()" style="cursor: pointer;">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,181 @@
+<div class="container-lg pt-5 pb-5">
+    <div class="row mb-3">
+        <div class="col text-center">
+            <h2 class="szCC_CCtitle"> Dalla comunità di Coursera Community </h2>
+            <p class="szCC_SubTitle">Oltre 148 milioni di persone si sono già iscritte a Coursera</p>
+        </div>
+    </div>
+    <div class="" *ngIf="isMobileResolution(); else DesktopResolution">
+        <div class="container-lg">
+            <div class="row d-flex justify-content-center ">
+                <div class="col-lg-4 sezCCcontainer-Width">
+                    <div class="d-flex flex-column mb-2">
+                        <div class="d-flex justify-content-center"> <!-- img-->
+                            <img class="box-img" [src]="urlImgPerson1" alt="">
+                        </div>
+                        <div class="container">
+                            <div class="row d-flex justify-content-center text-center">
+                                <div class="col">
+                                    <h3 class="sezCC-textColor mt-3 mb-3">Kenia R.</h3>
+                                    <p>United States</p>
+                                    <div class="row d-flex justify-content-center align-items-center mt-3 mb-3">
+                                        <hr class="divider m-0">
+                                    </div>
+                                    <p class="szCC_card-p m-0">"Being a mother - especially a working mother means I'm
+                                        constantly trying to juggle my schedule, my kids'schedules,
+                                        and work. I am very grateful for the flexible and remote learning programs that
+                                        Coursera has to offer."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 sezCCcontainer-Width">
+                    <div class="d-flex flex-column  mb-2 sezCCcontainer-Width">
+                        <div class="d-flex justify-content-center"> <!-- img-->
+                            <img class="box-img" [src]="urlImgPerson2" alt="">
+                        </div>
+                        <div class="container">
+                            <div class="row d-flex justify-content-center text-center">
+                                <div class="col">
+                                    <h3 class="sezCC-textColor mt-3 mb-3">Ryan L.</h3>
+                                    <p>United States</p>
+                                    <div class="row d-flex justify-content-center align-items-center mt-3 mb-3">
+                                        <hr class="divider m-0">
+                                    </div>
+                                    <p class="szCC_card-p m-0">"From taking courses on Coursera, I gained a deep
+                                        understanding of the UX Design process
+                                        from start to finish. With the knowledge I gained, I feel prepared for
+                                        entry-level jobs and internships. I've been
+                                        able to apply the skills and knowledge I gained to multiple projects and work
+                                        experiences."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 sezCCcontainer-Width">
+                    <div class="d-flex flex-column mb-2 sezCCcontainer-Width">
+                        <div class="d-flex justify-content-center"> <!-- img-->
+                            <img class="box-img" [src]="urlImgPerson3" alt="">
+                        </div>
+                        <div class="container">
+                            <div class="row d-flex justify-content-center text-center">
+                                <div class="col">
+                                    <h3 class="sezCC-textColor mt-3 mb-3">Vishal V.</h3>
+                                    <p>India</p>
+                                    <div class="row d-flex justify-content-center align-items-center mt-3 mb-3">
+                                        <hr class="divider m-0">
+                                    </div>
+                                    <p class="szCC_card-p m-0">"I really enjoyed my courses. The quizzes, videos, and
+                                        quick labs provided helpful hands-on experience.
+                                        Learning on Coursera has given me the confidence and ability to excel in my
+                                        career. I love this feeling."
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #DesktopResolution>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="d-flex justify-content-center"> <!-- img-->
+                                    <img class="box-img" [src]="urlImgPerson1" alt="">
+                                </div>
+                                <div class="container">
+                                    <div class="row d-flex justify-content-center text-center">
+                                        <div class="col">
+                                            <h3 class="sezCC-textColor mt-3 mb-3">Kenia R.</h3>
+                                            <p>United States</p>
+                                            <div class="row d-flex justify-content-center align-items-center mt-3 mb-3">
+                                                <hr class="divider m-0">
+                                            </div>
+                                            <p class="szCC_card-p m-0">"Being a mother - especially a working mother
+                                                means I'm constantly trying to juggle my schedule, my
+                                                kids'schedules,
+                                                and work. I am very grateful for the flexible and remote learning
+                                                programs that Coursera has to offer."
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="d-flex justify-content-center"> <!-- img-->
+                                    <img class="box-img" [src]="urlImgPerson2" alt="">
+                                </div>
+                                <div class="container">
+                                    <div class="row d-flex justify-content-center text-center">
+                                        <div class="col">
+                                            <h3 class="sezCC-textColor mt-3 mb-3">Ryan L.</h3>
+                                            <p>United States</p>
+                                            <div class="row d-flex justify-content-center align-items-center mt-3 mb-3">
+                                                <hr class="divider m-0">
+                                            </div>
+                                            <p class="szCC_card-p m-0">"From taking courses on Coursera, I gained a
+                                                deep understanding of the UX Design process
+                                                from start to finish. With the knowledge I gained, I feel prepared
+                                                for entry-level jobs and internships. I've been
+                                                able to apply the skills and knowledge I gained to multiple projects
+                                                and work experiences."
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="d-flex flex-column justify-content-center">
+                                <div class="d-flex justify-content-center"> <!-- img-->
+                                    <img class="box-img" [src]="urlImgPerson3" alt="">
+                                </div>
+                                <div class="container">
+                                    <div class="row d-flex justify-content-center text-center">
+                                        <div class="col">
+                                            <h3 class="sezCC-textColor mt-3 mb-3">Vishal V.</h3>
+                                            <p>India</p>
+                                            <div class="row d-flex justify-content-center align-items-center mt-3 mb-3">
+                                                <hr class="divider m-0">
+                                            </div>
+                                            <p class="szCC_card-p m-0">"I really enjoyed my courses. The quizzes,
+                                                videos, and quick labs provided helpful hands-on experience.
+                                                Learning on Coursera has given me the confidence and ability to
+                                                excel in my career. I love this feeling."
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

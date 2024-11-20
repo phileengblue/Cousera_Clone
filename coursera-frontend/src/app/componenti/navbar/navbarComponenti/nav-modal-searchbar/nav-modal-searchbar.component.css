@@ -1,0 +1,51 @@
+.button-search, :active {
+    border: none;
+    box-shadow: none;
+    border-color: transparent;
+    color: black;
+   }
+   .global-search-item {
+    display: flex;
+    height: auto;
+  }
+  
+  .global-search-item:active {
+    background-color: #f2f8ff;
+  }
+
+  .global-search-item-desc {
+    flex: auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .global-search-item-count {
+    flex: none;
+  }
+
+  .container-absolute{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    width: 98vw;
+    height: 98vh;
+    background-color: white;
+  }
+
+  .dropendImg{
+    width: 36px !important;
+    height: 36px !important; 
+    
+  }
+  .search-text-description{
+    color: #373a3c;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  .search-text-subcategory{
+    color:  #63676b;
+  }

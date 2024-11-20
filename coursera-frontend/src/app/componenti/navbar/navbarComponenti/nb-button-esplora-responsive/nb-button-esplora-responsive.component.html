@@ -1,0 +1,39 @@
+  <ul class="list-group menu-100vh "  aria-labelledby="dropdownMenuButton">
+    <li><a class="list-group-item mt-lg-4 nav-btn_dd-textTitle fw-bold">Obiettivi</a></li>
+    <li><a class="list-group-item nav-btn_dd-textsubTitle" href="page_filter">Segui un corso gratuito</a></li>
+    <li class="dropdown-submenu">
+      <a class="list-group-item dropdown-toggle nav-btn_dd-textsubTitle" (click)="showMessage = !showMessage">Consegui una laurea </a>
+      <div class="dropdown-menu menu-100vw scrollable nbBET-ActiveBG" *ngIf="showMessage">
+        <div class="row ps-4">
+          <div class="col-12">
+            <p class="dropend-title mt-5 nv-dd_de-textTitle ">Consegui una laurea</p>
+            <p class="dropend-description nav-dd_de-textDescription">Prezzi rivoluzionari per lauree 100% online progettate per adattarsi alla tua
+              vita.</p>
+          </div>
+        </div>
+          <app-nav-dropend [data]="lauree" [datamenu]="menuMaterie" />
+      </div>
+    </li>
+    <li class="dropdown-submenu">
+      <a class="list-group-item  dropdown-toggle nav-btn_dd-textsubTitle" (click)="showMessage = !showMessage">Ottieni un cerficato</a>
+      <div class="dropdown-menu menu-100vw scrollable nbBET-ActiveBG" *ngIf="showMessage">
+        <div class="row ps-4">
+          <div class="col-12">
+            <p class="dropend-title mt-5 nv-dd_de-textTitle ">Ottieni un certificato</p>
+            <p class="dropend-description nav-dd_de-textDescription">In 3-9 mesi, acquisisci le competenze necessarie per intraprendere una nuova carriera o per passare al livello successivo. </p>
+          </div>
+        </div>
+        <app-nav-dropend-certificati [data]="certificati" [datamenu]="menuMaterie" />
+      </div>
+    </li>
+    <li><a class="list-group-item  nav-btn_dd-textsubTitle" href="TrovaCarriera">Trova la tua nuova carriera</a></li>
+    <li><a class="list-group-item  nav-btn_dd-textsubTitle" (click)="openCoursesModal()" style="color: red;">Corsi in offerta</a></li>
+    <li><a class="list-group-item  mt-lg-4 nav-btn_dd-textTitle fw-bold">Materie</a></li>
+      <li class="dropdown-submenu" *ngFor="let materia of menuMaterie" >
+        <a class="list-group-item  dropdown-toggle nav-btn_dd-textsubTitle" (click)="showMessage = !showMessage">{{materia.value}}</a>
+        <div class="dropdown-menu menu-100vw scrollable nbBET-ActiveBG" *ngIf="showMessage">
+          <app-nav-dropend-materie [data]="lauree" [dataCertificati]="certificati" [dataFor]="materia" [dataInizia]="inizia" [dataCompetenzePP]="certificatiPP"/>
+        </div>
+      </li>
+      <li><a class="list-group-item nav-btn_dd-textsubTitle nbBER-linkcolor">Sfogia tutti i argomenti</a></li>
+  </ul>

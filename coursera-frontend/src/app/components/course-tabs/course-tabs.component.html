@@ -1,0 +1,39 @@
+<section class="mt-2 view-custom view-desktop" *ngFor="let course of details">
+  <div class="d-flex flex-column pt-xl-2 br-l-1 border-0">
+    <a class="fs-20 text-title">Serie di {{ course.series }} corsi</a>
+    <span class="fs-14 text-subtitle text-break">{{ course.credential }}</span>
+  </div>
+
+  <div class="mt-3 mt-lg-0 pt-xl-2 d-flex flex-column br-l-1">
+    <div class="d-flex align-items-center gap-2">
+      <span class="fs-20 text-title text-decoration-none">
+        {{ course.rateText[0].rate }}
+      </span>
+      <img src="{{ course.rateText[0].star }}" alt="Star" class="star" />
+    </div>
+    <span class="fs-14 text-subtitle">({{ course.rateText[0].review }} recensioni)</span>
+  </div>
+
+  <div class="mt-3 mt-lg-0 pt-xl-2 d-flex flex-column br-l-1">
+    <span class="fs-20 text-title text-decoration-none"
+      >Livello {{ course.level }}</span
+    >
+    <div class="d-flex align-items-center gap-2">
+      <span class="d-inline fs-14 text-subtitle">Esperienza consigliata </span>
+      <img src="{{ course.infoImg }}" alt="Info" class="info" />
+    </div>
+  </div>
+
+  <div class="mt-3 mt-lg-0 pt-xl-2 d-flex flex-column br-l-1">
+    <span class="fs-20 text-title text-decoration-none">Orario flessibile</span>
+    <span class="fs-14 text-subtitle">{{ course.hours }} a settimana</span>
+    <span class="fs-14 text-subtitle">Impara al tuo ritmo</span>
+  </div>
+
+  <div class="mt-3 mt-lg-0 pt-xl-2 d-flex flex-column br-l-1">
+    <span class="fs-20 text-title text-decoration-none"
+      >Ottieni un credito di laurea</span
+    >
+    <a class="fs-14 text-subtitle">Scopri di più</a>
+  </div>
+</section>

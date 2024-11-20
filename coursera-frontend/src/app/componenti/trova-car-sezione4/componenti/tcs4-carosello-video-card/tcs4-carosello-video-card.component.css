@@ -1,0 +1,56 @@
+ .carousel-indicators {
+   bottom: -63px;
+ }
+ 
+ .carousel-indicators button {
+    width: 14px;
+   height: 14px; 
+   border-radius: 50%;
+   border: 1px solid #5e5e5e;
+   margin-left: 2%;
+}
+
+.carousel-indicators .active {
+    background-color: #5e5e5e;
+ } 
+
+ .card-carosello {
+   max-width: 95%;
+   background-color: white;
+   box-shadow: #c1cad9 0px 0px 20px;
+   margin: 3%;
+   /* padding: 75px 55px 75px 55px; */
+   border-radius: 2px;
+
+ }
+
+ .imgLR-WH{
+   width: 224px; 
+}
+.bc_whiteBorder{
+  border:  3px solid #fff;
+  border-radius: 100%;
+}
+ .sztcs4-imgCaroselCard {
+   color: rgb(15, 17, 20);
+   font-weight: 100;  
+   font-size: 14px;
+   line-height: 20px;
+ }
+
+.tcs4CVC-parag {
+  font-size: 20px;
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 9%;
+}
+
+@media screen and (min-width: 992px) {
+  .card-carosello {
+    max-width: 730px;
+    height: 370px;
+    border-radius: 0px;
+    box-shadow: none;
+  }
+ }

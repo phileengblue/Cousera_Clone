@@ -1,0 +1,28 @@
+<div class="row">
+      <div class="col">
+            <nz-tag class="tagStyle" (click)="inputTags= null; toggleClass('all')" [class.active]="inputTags === null ">Tutte le carriere ({{getAllLenCertificates()}})</nz-tag>
+            <nz-tag class="tagStyle" *ngFor="let tag of tags; tranckBy" (click)="inputTags= tag; toggleClass(tag)" [class.active]="inputTags === tag">
+                  <span>{{ tag }} ({{ getLenCertificate(tag) }})</span>
+            </nz-tag>
+            <div class="mb-3"></div>
+      </div>
+</div>
+<div class="row d-flex justify-content-center mt-3 mb-3"> <!-- card -->
+      <div class="col-lg-auto col-md-6 " *ngFor="let card of getCertificate(inputTags) | slice: 0:displayedItems ;">
+            <app-tcs3-card [data]="card"></app-tcs3-card>
+      </div>
+</div>
+<div class="row d-flex justify-content-center" *ngIf="initialDisplayedItems < getLenTag(inputTags)">
+      <div class="col" *ngIf="displayedItems < getAllLenCertificates(); else elsetemplate"> 
+            <button type="button" class="btn btn-primary"  (click)="loadMore()">
+                  Visualizza altri </button> 
+      </div>
+      <ng-template #elsetemplate>
+            <div class="col">
+                  <button type="button" class="btn btn-primary ml-2" [hidden]="displayedItems === initialDisplayedItems" (click)="resetDisplay()">
+                        <div class="d-flex justify-content-center align-items-center"><span nz-icon nzType="arrow-up" nzTheme="outline"></span> Torna all'inizio </div>
+                      </button>
+            </div>
+      </ng-template>
+      <div class="mb-2"></div>    
+</div>

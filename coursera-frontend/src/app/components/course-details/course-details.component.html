@@ -1,0 +1,65 @@
+<section
+  class="d-flex flex-column section-course"
+  *ngFor="let course of details"
+>
+  <div class="position-relative">
+    <div class="d-flex justify-content-start w-100 p-2">
+      <img src="{{ course.img }}" alt="Google" class="mb-3" />
+    </div>
+
+    <div class="row">
+      <div class="d-flex flex-column col-lg-7 p-2">
+        <h1 class="mb-3">{{ course.title }}</h1>
+        <p class="m-0">{{ course.subtitle }}</p>
+
+        <div class="d-flex align-content-center p-2 gap-2">
+          <div
+            class="d-flex justify-content-center align-items-center border-logo"
+          >
+            <img src="{{ course.logo }}" alt="Google" class="logo-course" />
+          </div>
+          <span
+            class="d-flex flex-column flex-md-row gap-md-3 justify-content-start align-items-md-center"
+          >
+            <div class="d-flex flex-wrap align-items-center text-break">
+              Istruttore:
+              <a class="text-instructor"> {{ course.instructor }}</a>
+            </div>
+            <div *ngIf="course.hasMainInstructor" class="tag-instructor">
+              <p class="text-main-instructor">Instruttore principale</p>
+            </div>
+          </span>
+        </div>
+
+        <div class="row p-2 py-4">
+          <div class="col-lg-7">
+            <app-button-date></app-button-date>
+          </div>
+          <div class="col-lg-5 mt-3 mt-lg-0 d-lg-flex align-items-lg-center">
+            <p class="mb-0 fs-13">{{ course.help }}</p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center px-2 gap-1">
+          <span class="fw-bold">{{ course.registered }} </span>
+          <p class="m-0">già iscritti</p>
+        </div>
+
+        <div class="p-2">
+          <p class="m-0">
+            Incluso con <img src="{{ course.plus }}" alt="Coursera Plus" />
+            <span class="px-2">•</span>
+            <a class="fs-14 text-instructor text-decoration-none"
+              >Scopri di più</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container-tabs">
+  <app-course-tabs class="course-tabs"></app-course-tabs>
+</div>
+<div class="container"><app-course-info></app-course-info></div>

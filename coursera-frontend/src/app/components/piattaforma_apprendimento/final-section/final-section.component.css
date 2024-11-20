@@ -1,0 +1,536 @@
+/* FORM LOGIN */
+
+.move-container {
+  position: relative;
+  bottom: 355px;
+  left: 10px;
+}
+
+.display-768 {
+  padding: 12px;
+  display: flex;
+  border: 1px solid #c1cad9;
+}
+
+.input-2 {
+  width: 565px !important;
+}
+
+.form-control {
+  width: 270px;
+  border: 1px solid #636363;
+  height: 49px;
+}
+
+.hero-heading {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  line-height: 48px;
+}
+
+.p-text {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: -0.03em;
+  min-height: 16px;
+}
+
+.h3-font {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  letter-spacing: -0.1px;
+}
+
+.img-size {
+  width: 26%;
+  border-right: solid 1px #e8eef7;
+  border-bottom: solid 1px #e8eef7;
+  padding: 27px 44px;
+}
+
+.li-text {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: -0.28px;
+  min-height: 16px;
+}
+
+.lead {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  letter-spacing: -0.1px;
+}
+
+.position-mod {
+  position: relative;
+  right: 21px;
+}
+
+.btn-pad {
+  padding: 10px 254px;
+  background-color: #0056d2;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form .form-label {
+  font-weight: bold;
+}
+
+.custom-list-icon {
+  color: #0056d2;
+}
+
+.terms-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+.contact-info {
+  margin-bottom: 40px;
+}
+
+select.form-control {
+  width: 270px;
+  height: 49px;
+}
+
+/* BLACK LAYOUT */
+
+.cta-section {
+  background-color: #121212;
+  color: #fff;
+  padding: 141px 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+.cta-heading {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 64px;
+  line-height: 64px;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.cta-description {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.btn-primary-1 {
+  background-color: #0056D2;
+  border-color: #0056D2;
+  padding: 12px 262px;
+  text-decoration: none;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #0056D2;
+  border-color: #0056D2;
+  padding: 12px 30px;
+  text-decoration: none;
+}
+.btn-secondary {
+  background-color: black;
+  color: #ffffff;
+  border-color: #fff;
+  padding: 12px 32px;
+}
+
+/* FINAL CARD */
+
+.padding-change{
+
+  padding: 50px 22px;
+}
+
+.card-container {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  border: none;
+  transition: transform 0.3s ease-in-out;
+  background-image: url(https://images.ctfassets.net/2pudprfttvy6/2CuH2rm4msSbuQpG7dlbjY/5730eb1b48d17c95ce5fc66548b579d9/promo-bg-drk-blue.png);
+  color: white;
+  border-radius: 10px;
+  height: 363px;
+  background-position: right;
+  background-size: cover;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-body button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  padding: 0;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  position: absolute;
+  bottom: 50px;
+}
+
+.card-body button svg {
+  margin-left: 5px;
+}
+
+.card-title {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.1px;
+}
+
+.card-text {
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+}
+
+@media (max-width: 768px) {
+  /* FORM LOGIN */
+
+  .hero-heading {
+    font-size: 48px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+    line-height: 48px;
+    min-height: 16px;
+  }
+
+  .testimonial-container {
+    margin: 15px;
+  }
+  .p-text {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+    min-height: 16px;
+  }
+
+  .input-2 {
+    width: 285px !important;
+  }
+
+  .li-text {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: -0.28px;
+    min-height: 16px;
+  }
+
+  .move-container {
+    position: relative;
+    bottom: 490px;
+    left: 10px;
+  }
+
+  .display-768 {
+    padding: 12px;
+    display: grid;
+    border: 1px solid #c1cad9;
+  }
+
+  .form-control {
+    width: 285px;
+    border: 1px solid #636363;
+    height: 49px;
+  }
+
+  .margin-left {
+    margin-left: 10px;
+  }
+
+  .h3-font {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-bottom: 90px;
+    letter-spacing: -0.1px;
+  }
+
+  .img-size {
+    width: 32%;
+    border-right: solid 1px #e8eef7;
+    border-bottom: solid 1px #e8eef7;
+    padding: 22px;
+  }
+
+  .lead {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    letter-spacing: -0.1px;
+  }
+
+  .position-mod {
+    position: relative;
+    right: 21px;
+  }
+
+  .btn-pad {
+    padding: 10px 118px;
+    background-color: #0056d2;
+  }
+
+  select.form-control {
+    width: 284px;
+    height: 49px;
+  }
+
+  /* BLACK LAYOUT */
+
+  .cta-section {
+    padding: 118px 42px;
+  }
+  .cta-heading {
+    font-size: 64px;
+    line-height: 64px;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .cta-description {
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  /* FINAL CARD */
+
+  .padding-change{
+
+    padding: 50px 18px;
+  }
+
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.card {
+  border: none;
+  transition: transform 0.3s ease-in-out;
+  background-image: url(https://images.ctfassets.net/2pudprfttvy6/2CuH2rm4msSbuQpG7dlbjY/5730eb1b48d17c95ce5fc66548b579d9/promo-bg-drk-blue.png);
+  color: white;
+  border-radius: 10px;
+  height: 432px;
+  background-position: right;
+  background-size: cover;
+  margin-bottom: 20px;
+}
+}
+
+@media (max-width: 480px) {
+  /* FORM LOGIN */
+
+  .move-container {
+    position: relative;
+    bottom: 0px;
+    left: 10px;
+  }
+  .h3-font[_ngcontent-ng-c1619795778] {
+    font-size: 32px;
+    line-height: 32px;
+    font-weight: 600;
+    margin-bottom: 90px;
+    letter-spacing: -0.1px;
+    display: none;
+  }
+
+  .hero-heading {
+    font-family: "Source Sans Pro", Arial, sans-serif;
+    font-style: normal;
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    line-height: 40px;
+  }
+
+  .display-none {
+    display: none;
+  }
+
+  .display-768 {
+    padding: 12px;
+    display: grid;
+    border: 1px solid #c1cad9;
+    margin-left: 0px;
+  }
+
+  .display-480 {
+    width: 395px;
+  }
+
+  .form-control {
+    width: 325px;
+    border: 1px solid #636363;
+    height: 49px;
+  }
+
+  .btn-pad {
+    padding: 10px 133px;
+    background-color: #0056d2;
+  }
+  .margin-480 {
+    margin-left: 10px;
+  }
+
+  .input-2 {
+    width: 325px !important;
+  }
+
+  select.form-control {
+    width: 325px;
+    height: 49px;
+  }
+
+  /* BLACK LAYOUT */
+
+  .cta-section {
+    padding: 60px 20px;
+    margin-left: 5px;
+  }
+
+  .cta-heading {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    text-align: left;
+  }
+  .cta-description {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 40px;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  .move-container-2{
+
+    position: relative;
+    right: 30px;
+  }
+
+  .btn-primary-1 {
+    background-color: #0056D2;
+    border-color: #0056D2;
+    padding: 12px 145px;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background-color: #0056D2;
+    border-color: #0056D2;
+    padding: 10px 19px;
+    text-decoration: none;
+  }
+  .btn-secondary {
+    background-color: black;
+    color: #ffffff;
+    border-color: #fff;
+    padding: 10px 25px;
+  }
+
+  /* FINAL CARD */
+
+  .padding-change{
+
+    padding: 50px 18px;
+  }
+
+  .card-title {
+   
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.1px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    background-image: url(https://images.ctfassets.net/2pudprfttvy6/2CuH2rm4msSbuQpG7dlbjY/5730eb1b48d17c95ce5fc66548b579d9/promo-bg-drk-blue.png);
+    color: white;
+    border-radius: 10px;
+    height: 300px;
+    background-position: right;
+    background-size: cover;
+    margin-bottom: 20px;
+  }
+
+  .card-body button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    padding: 0;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    bottom: 50px;
+    line-height: 21px;
+    font-weight: 600;
+  }
+
+  .card-text {
+    
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+  }
+}

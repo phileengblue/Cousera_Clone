@@ -1,0 +1,91 @@
+<!--
+lauree=data=Elements
+indexMaterie=datamenu=menuElement
+menuMaterie=dataFor=Materiefor
+Certificati=dataCertificati=Certificati
+-->
+
+<div class="conteiner-fluid p-lg-4">
+    <div class="row">
+        <div class="col-12">
+            <p class="nv-dd_de-textTitle mt-4 ms-2 ">{{Materiafor.value}}</p>
+        </div>
+    </div>
+    <div class="row p-lg-2">
+        <div class="col-12 col-lg-6">
+            <div class="row row-lg-6 p-lg-2 p-lg-4" [hidden]="showVisibileLauree(Materiafor.id)"> <!-- Laureee-->
+                <p class="search-text-description nv-dd_de-textTitle">Laurea </p>
+                <div class="divider"></div>
+                <p class="search-text-subcategory nav-dd_de-textDescription"> Prezzi rivoluzionari per lauree 100%
+                    online progettate per adattarsi alla tua vita. </p>
+                <div clas="container" *ngFor="let element of Elements">
+                    <div class="row mb-3" *ngIf="element.category_id === Materiafor.id">
+                        <a class="link-Uni"[href]="element.id === 11 ? 'master-of-applied-data-science-umich' : element.urlpage">
+                            <div  class="col-12 d-flex align-items-center" >
+                                <div class="align-items-center m-1 rounded"style="width: 40px; height: 40px;">
+                                    <img class="p-1" src="{{element.university.image.url}}" style="width: 38px; height: 38px;" >
+                                </div>
+                                <div class="ms-2">
+                                    <p class="search-text-subcategory nv.dd_de-textSubItem m-0">{{element.university.name}}</p>
+                                    <p class="search-text-description nv.dd_de-textItem m-0 ">{{ element.title }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>  
+
+                </div>
+                <li><a class="btn btn-primary btn-navbar mt-4 ms-3">Visualizza tutte le lauree</a></li>
+            </div>
+            <div class="row row-lg-6 p-lg-2 p-lg-4" [hidden]="showVisibileCertificati(Materiafor.value)"> <!-- Programmi di certificazione -->
+                <p class="search-text-description nv-dd_de-textTitle">Programmi di certificazione </p>
+                <div class="divider"></div>
+                <p class="search-text-subcategory nav-dd_de-textDescription"> In 3-9 mesi, acquisisci le competenze
+                    necessarie per intraprendere una nuova carriera o per passare al livello successivo. </p>
+                <div clas="container" *ngFor="let element of Certificati">
+                    <div class="row mb-3" *ngIf="element.category === Materiafor.value">
+                        <a class="link-Uni" href="{{element.urlpage}}">
+                            <div  class="col-12 d-flex align-items-center" >
+                                <div class="row align-items-center m-1 rounded"style="width: 40px; height: 40px;">
+                                    <img class="p-1" src="{{element.urlimg}}" style="width: 38px; height: 38px;" >
+                                </div>
+                                <div class="ms-2">
+                                    <p class="search-text-description nv.dd_de-textItem m-0">{{element.title}}</p>
+                                    <p class="search-text-subcategory nv.dd_de-textSubItem m-0">{{ element.description }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>  
+                </div>
+                <li><a class="btn btn-primary btn-navbar mt-4 ms-3">Visualizza tutti i certificati</a></li>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="row row-lg-6 p-lg-2 p-lg-4" [hidden]="showVisibileInizia(Materiafor.value)"> <!-- Inizia -->
+                <p class="search-text-description nv-dd_de-textTitle"> Inizia </p>
+                <div class="divider mb-3"></div>
+                <div clas="" *ngFor="let element of Inizia">
+                    <div class="container" *ngIf="element.category == Materiafor.value">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <p class="nv.dd_de-textItem"> {{element.title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-lg-6 p-lg-2 p-lg-4 " [hidden]="showVisibileCPP(Materiafor.value)"> <!-- CompetenzePP -->
+                <p class="search-text-description nv-dd_de-textTitle"> Competenze Popolari </p>
+                <div class="divider mb-3"></div>
+                <div clas="" *ngFor="let element of CompetenzePP">
+                    <div class="container" *ngIf="element.category == Materiafor.value">
+                        <div class="row align-items-center">
+                            <div class="col-12">
+                                <p class="nv.dd_de-textItem"> {{element.title}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

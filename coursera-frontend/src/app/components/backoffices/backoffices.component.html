@@ -1,0 +1,458 @@
+<section class="container-fluid bg-custom">
+  <div class="row">
+    <!-- Colonna sinistra con la barra laterale -->
+    <div
+      class="col-12 col-lg-3 d-flex justify-content-center align-items-center mb-3 mb-lg-0 position-relative"
+    >
+      <div
+        id="simple-list-example"
+        class="d-flex flex-column gap-1 simple-list-example-scrollspy"
+      >
+        <a
+          class="p-1 rounded text-decoration-none"
+          [ngClass]="{
+            'btn-active': activeButton === 'corso',
+            'btn-off': activeButton !== 'corso'
+          }"
+          (click)="setActiveButton('corso')"
+          href="#courses"
+          >Aggiungi un corso</a
+        >
+        <a
+          class="p-1 rounded text-decoration-none"
+          [ngClass]="{
+            'btn-active': activeButton === 'professor',
+            'btn-off': activeButton !== 'professor'
+          }"
+          (click)="setActiveButton('professor')"
+          href="#professor"
+          >Aggiungi un professore</a
+        >
+        <a
+          class="p-1 rounded text-decoration-none"
+          [ngClass]="{
+            'btn-active': activeButton === 'universita',
+            'btn-off': activeButton !== 'universita'
+          }"
+          (click)="setActiveButton('universita')"
+          href="#university"
+          >Aggiungi un'università</a
+        >
+      </div>
+      <div class="vertical-divider position-absolute"></div>
+    </div>
+
+    <!-- Colonna a destra con i contenuti -->
+    <div class="col-12 col-lg-9 h-100 my-2 my-lg-5 min-height-container">
+      <div
+        data-bs-spy="scroll"
+        data-bs-target="#simple-list-example"
+        data-bs-offset="0"
+        data-bs-smooth-scroll="true"
+        class="scrollspy-example"
+      >
+        <!-- CORSO -->
+        <div
+          *ngIf="activeButton === 'corso'"
+          class="d-flex flex-wrap row-cols-3 w-100 d-flex justify-content-center align-items-center"
+        >
+          <form
+            [formGroup]="courseForm"
+            (ngSubmit)="handleSubmitCourse()"
+            class="w-100 row"
+          >
+            <div class="col-12 col-md-6">
+              <label for="title" class="label-back" id="courses">Titolo</label>
+              <input
+                type="text"
+                class="input-back"
+                id="title"
+                name="title"
+                formControlName="title"
+              />
+              <div *ngIf="createCourse && fCourse['title'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['title'].errors['required']"
+                >
+                  Inserisci titolo
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="duration" class="label-back">Durata</label>
+              <input
+                type="text"
+                class="input-back"
+                id="duration"
+                name="duration"
+                formControlName="duration"
+              />
+              <div *ngIf="createCourse && fCourse['duration'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['duration'].errors['required']"
+                >
+                  Inserisci la durata
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="price" class="label-back">Prezzo</label>
+              <input
+                type="text"
+                class="input-back"
+                id="price"
+                name="price"
+                formControlName="price"
+              />
+              <div *ngIf="createCourse && fCourse['price'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['price'].errors['required']"
+                >
+                  Inserisci prezzo
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="language_course" class="label-back">Lingua</label>
+              <nz-select
+                id="language_course"
+                class="select-back"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Seleziona lingua"
+                formControlName="language"
+              >
+                <nz-option
+                  *ngFor="let selectedLanguage of language"
+                  [nzValue]="selectedLanguage.value"
+                  [nzLabel]="selectedLanguage.label"
+                ></nz-option>
+              </nz-select>
+              <div *ngIf="createCourse && fCourse['language'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['language'].errors['required']"
+                >
+                  Inserisci lingua
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="category" class="label-back">Materia</label>
+              <nz-select
+                id="category"
+                class="select-back"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Seleziona materia"
+                formControlName="category_id"
+              >
+                <nz-option
+                  *ngFor="let selectedCategory of category"
+                  [nzValue]="selectedCategory.id"
+                  [nzLabel]="selectedCategory.alias"
+                ></nz-option>
+              </nz-select>
+              <div *ngIf="createCourse && fCourse['category_id'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['category_id'].errors['required']"
+                >
+                  Inserisci categoria
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="description" class="label-back">Descrizione</label>
+              <textarea
+                class="input-back max-h"
+                id="description"
+                name="description"
+                (input)="autoExpand($event)"
+                formControlName="description"
+              ></textarea>
+              <div *ngIf="createCourse && fCourse['description'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['description'].errors['required']"
+                >
+                  Inserisci descrizione
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="difficulty" class="label-back">Difficoltà</label>
+              <nz-select
+                id="difficulty"
+                class="select-back"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Seleziona difficoltà"
+                formControlName="difficulty_level"
+              >
+                <nz-option
+                  *ngFor="let selectedDifficulty of difficulty"
+                  [nzValue]="selectedDifficulty.difficulty_level"
+                  [nzLabel]="selectedDifficulty.difficulty_level"
+                ></nz-option>
+              </nz-select>
+              
+              <div *ngIf="createCourse && fCourse['difficulty_level'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['difficulty_level'].errors['required']"
+                >
+                  Inserisci la difficoltà
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="university_id" class="label-back"
+                >Scegli università</label
+              >
+              <nz-select
+                id="university_id"
+                class="select-back"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Seleziona università"
+                formControlName="university_id"
+              >
+                <nz-option
+                  *ngFor="let selectedUniversity of universities"
+                  [nzValue]="selectedUniversity.name"
+                  [nzLabel]="selectedUniversity.name"
+                ></nz-option>
+              </nz-select>
+              
+              <div *ngIf="createCourse && fCourse['university_id'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['university_id'].errors['required']"
+                >
+                  Seleziona università
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="product" class="label-back">Scegli tipologia</label>
+              <nz-select
+                id="product"
+                class="select-back"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Seleziona tipologia di corso"
+                formControlName="productTypeDescription"
+              >
+                <nz-option
+                  *ngFor="let selectedType of type"
+                  [nzValue]="selectedType.productTypeDescription"
+                  [nzLabel]="selectedType.productTypeDescription"
+                ></nz-option>
+              </nz-select>
+              <div
+                *ngIf="createCourse && fCourse['productTypeDescription'].errors"
+              >
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fCourse['productTypeDescription'].errors['required']"
+                >
+                  Seleziona tipologia di corso
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button type="submit" class="btn btn-custom">Crea</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- PROFESSORE -->
+        <div
+          *ngIf="activeButton === 'professor'"
+          class="d-flex flex-wrap row-cols-3 w-100 d-flex justify-content-center align-items-center"
+        >
+          <form
+            [formGroup]="professorForm"
+            (ngSubmit)="handleSubmitUser()"
+            class="w-100 row"
+          >
+            <div class="col-12 col-md-6">
+              <label for="user_id" class="label-back">Scegli professore</label>
+              <nz-select
+                id="user_id"
+                class="select-back"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Seleziona professore"
+                formControlName="user_id"
+              >
+                <nz-option
+                  *ngFor="let selectedUser of users"
+                  [nzValue]="selectedUser.id"
+                  [nzLabel]="
+                    selectedUser.firstname + ' ' + selectedUser.lastname
+                  "
+                ></nz-option>
+              </nz-select>
+
+              <div *ngIf="createProfessor && fUser['user_id'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fUser['user_id'].errors['required']"
+                >
+                  Seleziona professore
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="course_id" class="label-back"
+                >Corso dove insegna</label
+              >
+              <nz-select
+                id="course_id"
+                class="select-back"
+                nzShowSearch
+                nzAllowClear
+                nzPlaceHolder="Seleziona corso"
+                formControlName="course_id"
+              >
+                <nz-option
+                  *ngFor="let selectedCourse of courses"
+                  [nzValue]="selectedCourse.id"
+                  [nzLabel]="selectedCourse.title"
+                ></nz-option>
+              </nz-select>
+
+              <div *ngIf="createProfessor && fUser['course_id'].errors">
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fUser['course_id'].errors['required']"
+                >
+                  Seleziona corso
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button type="submit" class="btn btn-custom">Crea</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- UNIVERSITA -->
+        <div
+          *ngIf="activeButton === 'universita'"
+          class="d-flex flex-wrap row-cols-3 w-100 d-flex justify-content-center align-items-center"
+        >
+          <form
+            [formGroup]="universityForm"
+            (ngSubmit)="handleSubmitUniversity()"
+            class="w-100 row"
+          >
+            <div class="col-12 col-md-6">
+              <label for="university_name" class="label-back" id="university"
+                >Nome</label
+              >
+              <input
+                type="text"
+                class="input-back"
+                id="university_name"
+                name="university_name"
+                formControlName="name"
+              />
+              <div
+                *ngIf="
+                  createUniversity && fUniversity['name'].errors
+                "
+              >
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fUniversity['name'].errors['required']"
+                >
+                  Inserisci il nome dell'università
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="description" class="label-back">Descrizione</label>
+              <textarea
+                class="input-back max-h"
+                id="description"
+                name="description"
+                (input)="autoExpand($event)"
+                formControlName="description"
+              ></textarea>
+
+              <div
+                *ngIf="createUniversity && fUniversity['description'].errors"
+              >
+                <div
+                  class="text-danger mb-2"
+                  *ngIf="fUniversity['description'].errors['required']"
+                >
+                  Inserisci descrizione
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="logo" class="label-back">Inserisci logo</label>
+
+              <input
+                type="file"
+                id="fileInput"
+                class="d-none"
+                (change)="onFileSelected($event)"
+                formControlName="file_img"
+              />
+              <button
+                type="button"
+                class="bg-transparent input-back"
+                (click)="openFileInput()"
+              >
+                Carica File
+              </button>
+
+              <div
+                *ngIf="createUniversity && fUniversity['file_img'].errors"
+              >
+                <div class="text-danger">
+                  Inserisci logo in un formato valido
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-12 col-md-6 d-flex justify-content-center align-items-center"
+            >
+              <img
+                [src]="image || '../../assets/images/cap-50.png'"
+                alt="University logo"
+                class="university-image"
+              />
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center">
+              <button type="submit" class="btn btn-custom">Crea</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

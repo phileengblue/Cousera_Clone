@@ -1,0 +1,44 @@
+.box-img{
+
+}
+
+
+.tcs4-colText_rowTitleP{
+    color:rgb(52,3,133);
+    font-family: 'Source Sans 3';
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .tcs4-colText_rowTitleH2{
+    color:rgb(15,17,20);
+    font-family: 'Source Sans 3';
+    font-weight: lighter;
+    font-size: 28px;
+    line-height: 26px;
+  }
+
+  .tcs4-colText_rowDescriph3{
+    color:rgb(55,58,60);
+    font-family: 'Source Sans 3';
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .tcs4-colText_rowDescripP{
+    color:rgb(55,58,60);
+    font-family: 'Source Sans 3';
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+
+
+@media screen and (min-width: 992px) {
+    
+
+}
+
+

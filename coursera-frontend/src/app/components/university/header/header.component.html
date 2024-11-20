@@ -1,0 +1,88 @@
+<div class="container-fluid">
+    <header class="header-container">
+        <div class="container-custom">
+            <div class="gradient-background"></div>
+           
+            <div class="background-image"></div>
+        </div>
+        <div class="content-container">
+            <div class="program-info-content">
+                <nav aria-label="breadcrumb" class="breadcrumbs-wrapper nav-margin">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item hidden-p"><a  href="/degrees" class="text">Online Degrees ></a></li>
+                        <li class="breadcrumb-item"><a href="/degrees/data-science" class="text"><span class="hidden-span"><</span> Data Science Degrees <span class="hidden-span-1">></span></a></li>
+                        <li class="breadcrumb-item hidden-p"><a  href="/degrees/master-of-applied-data-science-umich" class="text">Master of Applied Data Science ></a></li>
+                        <li class="breadcrumb-item hidden-p" aria-current="page">Overview</li>
+                        
+                        
+                        
+                    </ol>
+                </nav>
+                <div class="partner-logo-container">
+                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/3mHgbOBai3cfLE6XcQgoYE/b43ddaeb8bfa4b255dcec86925898cec/MichiganSchoolofInformationLogo.png" alt="University of Michigan" class="img-fluid">
+                 <h1 class="page-title spacing">Master of Applied Data Science</h1>
+                <p class="partner-name">University of Michigan</p>
+            
+            </div>
+               
+                <div class="d-flex mb-5">
+
+                    <div class="circle-icons"> <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 48 48" role="img" aria-labelledby="Sharea43e4da0-3e62-4f0d-b236-5fb66640e9a9 Sharea43e4da0-3e62-4f0d-b236-5fb66640e9a9Desc" xmlns="http://www.w3.org/2000/svg">
+                        <title id="Sharea43e4da0-3e62-4f0d-b236-5fb66640e9a9">Icon</title>
+                        <desc id="Sharea43e4da0-3e62-4f0d-b236-5fb66640e9a9Desc">Icon Description</desc>
+                        <path d="M16,30.707 L14,30.707 C14,19.698 22.832,11.707 35,11.707 L44.586,11.707 L34.293,1.414 L35.707,0 L48.414,12.707 L35.707,25.414 L34.293,24 L44.586,13.707 L35,13.707 C23.813,13.707 16,20.698 16,30.707" role="presentation"></path>
+                        <polygon points="40 43.707 0 43.707 0 9.707 13 9.707 13 11.707 2 11.707 2 41.707 38 41.707 38 30.707 40 30.707" role="presentation"></polygon>
+                    </svg></div><a class="share" href=""> Condividi</a>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>
+
+
+<!-- Sezione Overwiew -->
+ 
+<div class="scrolling-wrapper"> 
+    <div class="card highlight">
+        <h2 class="font-over"><a href="#overview" class="link">Overview</a></h2>
+    </div> 
+    <div class="card">
+        <h2 class="font-over"><a href="https://www.coursera.org/degrees/master-of-applied-data-science-umich/admissions" class="link">Admission</a></h2>
+    </div> 
+    <div class="card">
+        <h2 class="font-over"><a href="https://www.coursera.org/degrees/master-of-applied-data-science-umich/academics" class="link">Academics</a></h2>
+    </div> 
+    <div class="card">
+        <h2 class="font-over"><a href="https://www.coursera.org/degrees/master-of-applied-data-science-umich/tuition-financing" class="link">Tuition & Financing</a></h2>
+    </div> 
+    <div class="card">
+        <h2 class="font-over"><a href="https://www.coursera.org/degrees/master-of-applied-data-science-umich/student-experience" class="link">Student Experience</a></h2>
+    </div> 
+    <div class="card">
+        <h2 class="font-over"><a href="https://www.coursera.org/degrees/master-of-applied-data-science-umich/careers" class="link">Careers</a></h2>
+    </div> 
+    <div class="card">
+        <h2 class="font-over"><a href="https://www.coursera.org/degrees/master-of-applied-data-science-umich/about" class="link">About the University</a></h2>
+    </div>  
+</div>
+
+  <!-- Alance-section -->
+
+  <div class="container">
+    <div class="row d-flex info-container">
+        <div *ngFor="let section of visibleSections; let last = last"
+       class="col-md-6 col-lg-4 info-section border-alance"
+       [ngClass]="{ 'last-border-alance': last }">
+            <h2 class="font-h2-alance">{{ section.title }}</h2>
+            <p class="font-p-alance">{{ section.content }}</p>
+
+        </div>
+        <div class="d-grid gap-2">
+        <button class="btn custom-button" type="button" (click)="showMoreComponents()" *ngIf="componentToShow < sections.length">Mostra di più</button>
+        <button class="btn custom-button" type="button" (click)="hiddenComponents()" *ngIf="componentToShow > 3 ">Mostra di meno</button>
+    </div>
+    </div>
+
+    
+
+</div>

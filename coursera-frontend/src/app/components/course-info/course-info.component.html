@@ -1,0 +1,704 @@
+<div class="row col-lg-12 content">
+  <div [id]="items[0].id"></div>
+
+  <div
+    class="scrolling-wrapper d-flex flex-column"
+    (keypress)="onKeyPress($event)"
+    (keydown)="onKeyDown($event)"
+    (keyup)="onKeyUp($event)"
+    [ngClass]="{ hidden: !showButtons, sticky: isSticky }"
+  >
+    <div
+      *ngIf="!isMobileScreen"
+      [ngClass]="{ 'd-none': !isSticky, visible: isSticky }"
+    >
+      <div
+        *ngFor="let item of info"
+        class="d-flex justify-content-md-between align-items-md-center banner-tabs"
+      >
+        <div class="d-flex gap-md-2 gap-lg-4 align-items-center">
+          <img src="{{ item.logo }}" alt="Logo corso" class="logo" />
+          <p class="fw-semibold">{{ item.title }}</p>
+        </div>
+        <div class="d-flex">
+          <app-button-date padding="11px 32px 13px"></app-button-date>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex flex-row pb-lg-3 py-2">
+      <div
+        class="tabs"
+        *ngFor="let item of items; let i = index"
+        [ngClass]="{
+          highlight: selectedIndex === i,
+          hidden: !isSticky,
+          visible: isSticky
+        }"
+      >
+        <a
+          [href]="'#' + item.id"
+          (click)="selectCard(i, $event)"
+          class="tabs-link"
+          ><h2 class="fs-14">{{ item.name }}</h2></a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="divider col-lg-8"></div>
+
+  <section *ngFor="let course of info; let i = index">
+    <div class="container" id="informazioni">
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <p class="text-title">Cosa imparerai</p>
+        </div>
+        <div class="row col-12 col-lg-8">
+          <div
+            class="col-12 col-md-6 col-lg-6"
+            *ngFor="let textItem of course.info.textArray"
+          >
+            <div class="d-flex align-items-start p-2">
+              <img
+                src="../../../assets/images/flag.svg"
+                alt="Skills"
+                class="info-icon"
+              />
+              <div class="info-text">{{ textItem.text }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-lg-8">
+          <p class="text-title pt-lg-2">Competenze che acquisirai</p>
+        </div>
+        <div class="col-12 col-lg-8">
+          <div class="d-flex flex-wrap gap-3 p-2">
+            <button class="btn-info" *ngFor="let item of skillsToShow">
+              {{ item.skill }}
+            </button>
+
+            <button class="show-more" (click)="toggleShow()">
+              {{
+                showAll
+                  ? "Visualizza meno compotenze"
+                  : "Visualizza tutte le compotenze"
+              }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div [id]="items[i + 1].id"></div>
+
+      <div class="details">
+        <span>Dettagli da conoscere</span>
+        <div class="d-flex flex-column flex-lg-row">
+          <div class="row col-lg-8">
+            <div
+              class="d-flex flex-column align-items-start pt-2 col-12 col-lg-4"
+            >
+              <img
+                src="../../../assets/images/linkedin.svg"
+                alt="Linkedin"
+                class="img-custom"
+              />
+              <div class="">
+                <p class="fs-16">Certificato condivisibile</p>
+                <p class="fs-14 text-subtitle">
+                  Aggiungi al tuo profilo Linkedin
+                </p>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-4 pt-2">
+              <img
+                src="../../../assets/images/inglese.svg"
+                alt="Certificato Inglese"
+                class="img-fluid"
+              />
+              <div class="">
+                <p class="">Inglese in XML</p>
+                <p class="show-more text-decoration-none">
+                  9 lingue disponibili
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section *ngFor="let course of info; let i = index">
+    <div class="container" id="risultati">
+      <div
+        class="row d-flex flex-column flex-lg-row-reverse align-items-lg-center justify-content-md-between"
+      >
+        <div class="col-12 col-lg-5 mb-4 p-0">
+          <div class="card">
+            <img
+              src="{{ course.results.job_img }}"
+              class="card-img-top"
+              alt="Job"
+            />
+            <div class="card-body d-flex flex-column flex-md-row gap-2">
+              <span class="card-text border-0">
+                <p class="fs-24 fw-1f fw-semibold fs-md-20 fs-md-20">
+                  {{ course.results.salary }}
+                </p>
+                <p class="fs-14">
+                  <span class="fw-bold">stipendio medio negli Stati Uniti</span>
+                  per Data Analytics¹
+                </p>
+              </span>
+              <span class="card-text">
+                <p class="fs-24 fw-1f fw-semibold fs-md-20">
+                  {{ course.results.job_positions }}
+                </p>
+                <p class="fs-14">
+                  posti di lavoro negli Stati Uniti in Data Analytics¹
+                </p>
+              </span>
+              <span class="card-text">
+                <p class="fs-24 fw-1f fw-semibold fs-md-20">
+                  {{ course.results.positive_outcome }}
+                </p>
+                <p class="fs-14">
+                  dei diplomati del certificato riporta un esito positivo della
+                  carriera²
+                </p>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 mb-4 p-0">
+          <div class="d-flex flex-column">
+            <p class="text-title pb-2">
+              Preparati per una carriera in {{ course.results.job_title }}
+            </p>
+            <ul *ngFor="let item of course.results.texts" class="mb-2">
+              <li class="text-subtitle">{{ item.text }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section *ngFor="let course of access; let i = index">
+    <div class="my-bg">
+      <div class="d-flex flex-column flex-lg-row align-items-lg-center p-3">
+        <p class="fs-24 fw-1f fw-semibold p-2 lh-sm me-lg-3">
+          Ottieni l'accesso esclusivo alle risorse per la carriera al termine
+          del corso
+        </p>
+        <div
+          class="d-flex flex-column flex-md-row"
+          *ngFor="let item of course.summary"
+        >
+          <span class="py-3">
+            <img src="{{ item.icon }}" class="img-fluid pb-2" alt="Icon" />
+            <p class="fs-14 fw-1f fw-semibold pb-1">{{ item.title }}</p>
+            <p class="text-color me-lg-5">{{ item.label }}</p>
+          </span>
+        </div>
+      </div>
+
+      <div class="connect p-3 d-flex flex-column flex-lg-row py-lg-4">
+        <p class="fs-14 fw-semibold fw-1f col-lg-4">{{ course.connect }}</p>
+        <div
+          class="d-flex flex-row flex-wrap align-items-center justify-content-center gap-5 pt-4 pt-lg-0 col-lg-8 justify-content-lg-evenly"
+        >
+          <div *ngFor="let icon of course.img_folder">
+            <img src="{{ icon.img_access }}" alt="Icon" class="icon-custom" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-foo ws-pre-wrap px-2 mb-4">{{ course.info }}</p>
+
+    <div class="d-flex flex-column flex-lg-row-reverse">
+      <div class="d-flex justify-content-center align-items-center">
+        <img
+          src="{{ course.img_letter }}"
+          alt="Curriculum Letter"
+          class="img-letter"
+        />
+      </div>
+
+      <div
+        class="d-flex align-items-center align-items-lg-start justify-content-center flex-column curriculum px-lg-5"
+      >
+        <p class="fs-24 fw-1f fw-semibold">{{ course.letter }}</p>
+        <p class="fw-1f px-2 px-lg-0 ws-pre-wrap">{{ course.description }}</p>
+      </div>
+      <div [id]="items[i + 2].id"></div>
+    </div>
+  </section>
+
+  <section *ngFor="let item of data; let i = index">
+    <div class="container p-2" id="corsi">
+      <p class="pt-5 pb-3 text-title fs-24">
+        {{ item.title }} - {{ item.series }}
+      </p>
+
+      <div
+        class="col-lg-8"
+        [innerHTML]="
+          showAll
+            ? formattedText
+            : formattedText.slice(0, numberOfCharactersToShow) + '...'
+        "
+      ></div>
+
+      <button (click)="toggleShow()" class="show-more text-decoration-none p-0">
+        {{ showAll ? "Leggi di meno" : "Scopri di più" }}
+      </button>
+    </div>
+
+    <div class="row">
+      <!-- Versione per schermi ampi (Desktop) -->
+      <div *ngIf="!isMobileScreen" class="col-lg-8">
+        <div
+          class="accordion accordion-flush border-custom"
+          id="accordionFlushExample"
+          *ngFor="let info of item.course_info; let i = index"
+        >
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed p-3"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#flush-collapse' + i"
+                aria-expanded="false"
+                [attr.aria-controls]="'flush-collapse' + i"
+              >
+                <div class="flex-column col-lg-7">
+                  <p class="fw-bold pb-2 text-decoration-underline">
+                    {{ info.course_title }}
+                  </p>
+                  <span class="d-flex align-items-center subtitle-color fs-14">
+                    Corso {{ info.course_id }} • {{ info.course_hours }} •
+                    {{ info.course_rate[0].rate }}
+                    <img
+                      src="{{ info.course_rate[0].star }}"
+                      alt="Star"
+                      class="star px-1"
+                    />
+                    ({{ info.course_rate[0].review }})
+                  </span>
+                </div>
+
+                <div class="offset-lg-1 col-lg-3">
+                  <button class="btn hover-text">Dettagli del corso</button>
+                </div>
+              </button>
+            </h2>
+            <div
+              [id]="'flush-collapse' + i"
+              class="accordion-collapse collapse"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">
+                <p class="pb-2 fw-semibold">Cosa imparerai</p>
+                <div
+                  *ngFor="let item of info.multi_text"
+                  class="d-flex align-items-start"
+                >
+                  <img
+                    src="../../../assets/images/flag.svg"
+                    alt="Skills"
+                    class="info-icon"
+                  />
+                  <span class="mb-3 color-learn">{{ item.text }}</span>
+                </div>
+
+                <p class="py-2 fw-semibold">Competenze che acquisirai</p>
+
+                <div class="d-flex flex-wrap gap-3 py-2 flex-row">
+                  <button *ngFor="let item of info.skills" class="btn-info">
+                    {{ item.skill }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Versione per schermi stretti (Mobile) -->
+      <div *ngIf="isMobileScreen">
+        <div
+          class="accordion accordion-flush border-custom"
+          id="accordionFlushExampleMobile"
+          *ngFor="let info of item.course_info; let i = index"
+        >
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button
+                class="accordion-button collapsed p-3"
+                type="button"
+                (click)="toggleOverlay(i)"
+              >
+                <div class="flex-column">
+                  <p class="fw-bold pb-2">{{ info.course_title }}</p>
+                  <span class="d-flex align-items-center subtitle-color fs-14">
+                    Corso {{ info.course_id }} • {{ info.course_hours }} •
+                    {{ info.course_rate[0].rate }}
+                    <img
+                      src="{{ info.course_rate[0].star }}"
+                      alt="Star"
+                      class="star px-1"
+                    />
+                    ({{ info.course_rate[0].review }})
+                  </span>
+                </div>
+              </button>
+            </h2>
+          </div>
+        </div>
+
+        <!-- Fullscreen Overlay -->
+        <div
+          class="fullscreen-overlay"
+          *ngIf="isOverlayVisible"
+          [id]="'fullscreen-overlay-' + activeIndex"
+        >
+          <div class="d-flex justify-content-end w-100">
+            <button class="close-button" (click)="closeOverlay()">
+              Close
+              <img
+                src="../../../assets/images/close.svg"
+                alt="Close"
+                class="close"
+              />
+            </button>
+          </div>
+          <div class="d-flex flex-column">
+            <p class="fs-20 mb-3 p-1 fw-bold text-decoration-underline">
+              {{ item.course_info[activeIndex].course_title }}
+            </p>
+            <p class="pb-2 fw-semibold">Cosa imparerai</p>
+            <div
+              *ngFor="let item of item.course_info[activeIndex].multi_text"
+              class="d-flex align-items-start"
+            >
+              <img
+                src="../../../assets/images/flag.svg"
+                alt="Skills"
+                class="info-icon"
+              />
+              <span class="mb-3 color-learn">{{ item.text }}</span>
+            </div>
+
+            <p class="py-2 fw-semibold">Competenze che acquisirai</p>
+            <div class="d-flex flex-wrap gap-3 py-2 flex-row">
+              <button
+                *ngFor="let skill of item.course_info[activeIndex]?.skills"
+                class="btn-info"
+              >
+                {{ skill.skill }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4 pt-3 pt-lg-0" *ngFor="let item of info">
+        <div class="border-custom">
+          <p class="fs-20 fw-bold p-3">Istruttore</p>
+          <div class="d-flex justify-content-start px-4 gap-3">
+            <div
+              class="d-flex justify-content-center align-items-center border-logo"
+            >
+              <img src="{{ item.logo }}" alt="Google" class="logo-course" />
+            </div>
+
+            <div class="d-flex flex-column">
+              <div *ngIf="item.hasMainInstructor" class="tag-instructor">
+                <p class="text-main-instructor">Instruttore principale</p>
+              </div>
+              <span class="text-decoration-underline pt-2 fw-bold"
+                >{{ item.instructor }}
+              </span>
+              <div
+                *ngFor="let company of item.information"
+                class="d-flex flex-column pb-3"
+              >
+                <span class="fs-14">
+                  <p class="fw-1f">{{ company.name }}</p>
+                  {{ company.courses }} corsi •
+                  {{ company.participants }} partecipanti</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-custom">
+          <p class="fs-20 fw-bold p-3">Offerto da</p>
+          <div class="d-flex px-4 pb-3 gap-3">
+            <div
+              class="d-flex justify-content-center align-items-center border-offers"
+            >
+              <img src="{{ item.logo }}" alt="Logo" class="logo-offers" />
+            </div>
+            <div *ngFor="let company of item.information">
+              <p class="text-decoration-underline fw-semibold">
+                {{ company.name }}
+              </p>
+              <a href="" class="text-decoration-none">Scopri di più</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section *ngFor="let degree of startDegree; let i = index" class="pt-4">
+    <div class="my-bg p-3 px-lg-5 py-lg-4">
+      <p class="fs-1 fw-bolder pb-2">Inizia a lavorare a questa laurea</p>
+      <p class="mb-1">{{ degree.text }}</p>
+      <a href="" class="text-study pt-1"
+        >Visualizza i titoli di studio idonei</a
+      >
+
+      <div class="credit-section d-md-flex gap-md-3">
+        <div *ngIf="!isMobileScreen">
+          <img src="{{ degree.img_credit }}" alt="Credi di laurea" />
+        </div>
+
+        <div [id]="items[i + 3].id"></div>
+
+        <div class="d-flex flex-column">
+          <p class="fs-20 fw-semibold mb-2">Crediti di laurea idonei</p>
+          <span
+            >{{ degree.text_degree }}
+            <a href="" class="fw-1f">Scopri di più</a></span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mt-5">
+    <div id="testimonianze">
+      <p class="fs-24 fw-semibold p-1 pb-3">
+        Perché le persone scelgono Coursera per la loro carriera
+      </p>
+
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div
+            class="carousel-item"
+            *ngFor="let person of people; let i = index"
+            [class.active]="i === 0"
+          >
+            <div class="container">
+              <div class="row align-items-center px-lg-5">
+                <div class="col-lg-6">
+                  <div class="image-place box-shadow">
+                    <div class="container-img">
+                      <img [src]="person.img" class="people-img" alt="People" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div
+                    class="carousel-caption d-block text-start text-black p-4"
+                  >
+                    <div>
+                      <p class="fw-bolder">{{ person.review }}</p>
+                      <p class="mt-2 fw-semibold">{{ person.name }}</p>
+                      <p class="text-subtitle">{{ person.course }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-indicators">
+          <button
+            *ngFor="let person of people; let i = index"
+            type="button"
+            data-bs-target="#carouselExample"
+            [attr.data-bs-slide-to]="i"
+            [class.active]="i === 0"
+            [attr.aria-current]="i === 0 ? 'true' : null"
+            [attr.aria-label]="'Slide ' + (i + 1)"
+          ></button>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div
+      *ngFor="let text of info"
+      class="d-flex align-items-center justify-content-center justify-content-lg-start"
+    >
+      <p class="fs-20 fw-semibold mb-3">
+        Sei nuovo di {{ text.macroCategory }}? Inizia da qui
+      </p>
+    </div>
+
+    <div
+      class="d-flex flex-column flex-md-row gap-3 justify-content-md-between"
+    >
+      <!-- Card visibile solo su mobile -->
+      <div class="card-custom d-md-none">
+        <p class="fw-semibold">{{ start[0].title }}</p>
+        <div class="d-flex flex-column gap-1 text-subtitle fs-14">
+          <p>{{ start[0].date }}</p>
+          <p>{{ start[0].subtitle }} {{ start[0].duration }}</p>
+        </div>
+      </div>
+
+      <!-- Card visibili su desktop -->
+      <div class="card-custom d-none d-md-block" *ngFor="let item of start">
+        <p class="fw-semibold">{{ item.title }}</p>
+        <div class="d-flex flex-column gap-1 text-subtitle fs-14">
+          <p>{{ item.date }}</p>
+          <p>{{ item.subtitle }} {{ item.duration }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section class="row">
+      <div
+        class="col-12 col-lg-4 mb-4"
+        *ngFor="let item of card; let i = index"
+        [ngClass]="{ 'card-special': i === 1 }"
+      >
+        <div class="card-section">
+          <img src="{{ item.img_card }}" alt="Card" class="card-img-section" />
+          <div class="card-overlay align-items-start">
+            <div
+              [ngClass]="{
+                'card-title-section': true,
+                'card-title-section-odd': i % 2 === 0,
+                'card-title-section-even': i % 2 !== 0
+              }"
+            >
+              <p class="fw-semibold fs-24">{{ item.title }}</p>
+              <div>
+                <p class="pt-3 pb-2">{{ item.text }}</p>
+              </div>
+            </div>
+            <div
+              class="card-tag-a"
+              [ngClass]="{
+                'card-tag-a': true,
+                'card-tag-a-odd': i % 2 === 0,
+                'card-tag-a-even': i % 2 !== 0
+              }"
+            >
+              <a [href]="item.href" class="text-decoration-none">
+                Scopri di più
+                <img
+                  *ngIf="i == 1"
+                  src="../../../assets/images/arrow-white.png"
+                  alt="Scopri di più"
+                />
+                <img
+                  *ngIf="i !== 1"
+                  src="../../../assets/images/arrow-blu.png"
+                  alt="Scopri di più"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="d-flex justify-content-center flex-column margin-custom">
+    <p class="fs-24 p-2 mb-2">Domande frequenti</p>
+
+    <div class="row px-3 px-md-0">
+      <div class="flex-lg-row col-lg-8 p-3 accordion-qa">
+        <div *ngFor="let item of displayedItems; let i = index">
+          <div
+            class="accordion accordion-flush"
+            [attr.id]="'accordionFlushExample' + i"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header pb-2">
+                <button
+                  class="accordion-button collapsed border-qa"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  [attr.data-bs-target]="'#flush-collapse' + i"
+                  aria-expanded="false"
+                  [attr.aria-controls]="'flush-collapse' + i"
+                >
+                  <p>{{ item.title }}</p>
+                </button>
+              </h2>
+              <div
+                [id]="'flush-collapse' + i"
+                class="accordion-collapse collapse"
+                [attr.data-bs-parent]="'#accordionFlushExample' + i"
+              >
+                <div class="accordion-body">
+                  <p>{{ item.question }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="show-more text-decoration-none mt-3 w-100"
+          (click)="showMore()"
+        >
+          {{ !showAll ? "Vedi tutte le domande" : "Vedi di meno" }}
+        </button>
+      </div>
+
+      <div class="py-3 px-0 py-lg-0 offset-lg-1 col-lg-3">
+        <div class="accordion-qa">
+          <div
+            class="d-flex justify-content-around align-items-center justify-content-md-start gap-md-3"
+          >
+            <img src="../../../assets/images/question.svg" alt="Question" />
+
+            <div class="d-flex flex-column">
+              <p>Altre domande</p>
+              <a href="" class="show-more text-decoration-none"
+                >Visita il centro di assistenza per gli studenti</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [ngClass]="{ hidden: !isSticky, visible: isSticky }">
+    <app-button-date class="btn-subscribe"></app-button-date>
+  </div>
+</div>

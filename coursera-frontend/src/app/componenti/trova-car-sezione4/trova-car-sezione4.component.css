@@ -1,0 +1,48 @@
+.tcs4-bg_color{
+    background-color: #f2f4fa;
+}
+
+.sztcs4-Title {
+    color: rgb(15,17,20);
+    font-weight: 600;  
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .sztcs4-subTitle {
+    color: rgb(15,17,20);
+    font-weight: 400;  
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .sztcs4-imgLR_Name {
+    color: rgb(91,103,128);
+    font-weight: 100;  
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .sztcs4-CardCarol_WH {
+    max-width: 92%;
+}
+
+@media screen and (min-width: 992px) { /* lato laptop */ 
+  .sztcs4-CardCarol_WH {
+    max-width: 70%;
+}
+
+}
+
+.imgLR-WH{
+    width: 224px; 
+}
+.bc_whiteBorder{
+   border:  3px solid #fff;
+    border-radius: 50%;
+    border-radius: 100%;
+
+}
+
+
+
+

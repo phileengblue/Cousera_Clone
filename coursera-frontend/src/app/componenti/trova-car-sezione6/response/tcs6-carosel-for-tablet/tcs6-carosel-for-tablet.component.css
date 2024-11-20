@@ -1,0 +1,98 @@
+.carousel-indicators {
+    bottom: -63px;
+  }
+  
+  .carousel-indicators button {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #5e5e5e;
+    margin-left: 2%;
+  }
+  
+  .carousel-indicators .active {
+    background-color: #5e5e5e;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 7%;
+  }
+
+.tcs6-cardCertif-WH {
+    width: 268px;
+    height: 264px;
+    margin: 0px 15px;
+    position: static;
+  }
+  
+  .tcs6-cardCertif-boxImage {
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80px;
+  }
+  
+  .tcs6-cardCertif-BanckgroundColor {
+    background-color: #00255c;
+    width: 100%;
+    height: 286px;
+    position: absolute;
+    top: 55px;
+    transform: skewY(-10deg);
+    
+  }
+  
+.tcs6-dtl {
+    width: 268px;
+    height: 264px;
+    position: absolute;
+    z-index: 1;
+  }
+
+  .tcs6-dlt_boxImage{
+    width: 72px; 
+    height: 72px; 
+    background-color: white; 
+    padding: 8px;
+    border-radius: 3px;
+    position: absolute;
+    top: 28px;
+    left: 24px;
+  }
+
+  .tcs6-dlt_box-text {
+    height: max-content;
+    position: absolute;
+    top: 110px;
+    left: 24px;
+  }
+  
+  .tcs6-dlt_box-subText{
+    width: max-content;
+    position: absolute;
+    left: 24px;
+    top: 225px;
+  }
+  
+  .tcs6-title {
+    width: 86.3px;
+    height: 81px;
+    color: #ffff;
+    font-size: 20px;
+    line-height: 28px;
+    text-decoration: none;
+  }
+  
+  .tcs6-subTitle{
+    color: #ffff;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .tcs6-description{
+    color: #ffff;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+  }
+  

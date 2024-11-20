@@ -1,0 +1,290 @@
+<!-- FORM LOGIN -->
+
+<div class="container py-5">
+  <div class="row contact-info text-center">
+    <div class="col-md-6 text-start margin-480">
+      <h2 class="hero-heading">
+        Mettiti in contatto con il nostro team di vendita
+      </h2>
+      <p class="p-text">Scopri di più su come puoi:</p>
+      <ul class="list-unstyled">
+        <li class="li-text" *ngFor="let benefit of benefits">
+          <i [class]="benefit.icon"></i>
+          <svg aria-hidden="true" fill="none" height="16" viewBox="0 0 16 16" width="16" class="custom-list-icon me-2">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.74 3.672L6.225 14.168.323 8.736l1.354-1.472 4.419 4.068 8.163-9.004 1.482 1.344z" fill="currentColor"></path>
+          </svg>
+          {{ benefit.text }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-4 display-none">
+      <h3 class="h3-font">
+        Unisciti ai college e alle università innovative di tutto il mondo che
+        scelgono Coursera per i loro studenti
+      </h3>
+      <div class="d-flex flex-wrap justify-content-start">
+        <img
+          *ngFor="let university of universities"
+          [src]="university.src"
+          [alt]="university.alt"
+          class="img-fluid img-size"
+        />
+      </div>
+    </div>
+
+    <div class="container py-5 col-md-6 move-container">
+      <div class="contact-form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <!-- Campi del form -->
+          <div class="row g-3 display-768 display-480">
+        
+            <!-- Nome -->
+            <div class="col-md-6 margin-left">
+              <label for="firstname" class="form-label"></label>
+              <input 
+                formControlName="firstname" 
+                id="firstname" 
+                class="form-control mktoField mktoTextField mktoHasWidth mktoRequired"
+                placeholder="First Name"
+                [ngClass]="{'is-invalid': form.get('firstname').invalid && form.get('firstname').touched}" 
+              />
+              <div *ngIf="form.get('firstname').invalid && form.get('firstname').touched" class="invalid-feedback">
+                Il nome è obbligatorio.
+              </div>
+            </div>
+        
+            <!-- Cognome -->
+            <div class="col-md-6 margin-left">
+              <label for="lastname" class="form-label"></label>
+              <input 
+                formControlName="lastname" 
+                id="lastname" 
+                class="form-control mktoField mktoTextField mktoHasWidth mktoRequired"
+                placeholder="Last Name"
+                [ngClass]="{'is-invalid': form.get('lastname').invalid && form.get('lastname').touched}" 
+              />
+              <div *ngIf="form.get('lastname').invalid && form.get('lastname').touched" class="invalid-feedback">
+                Il cognome è obbligatorio.
+              </div>
+            </div>
+        
+            <!-- Email -->
+            <div class="col-md-6 margin-left">
+              <label for="email" class="form-label"></label>
+              <input 
+                formControlName="email" 
+                id="email" 
+                class="form-control mktoField mktoTextField mktoHasWidth mktoRequired"
+                placeholder="Work Email Address"
+                [ngClass]="{'is-invalid': form.get('email').invalid && form.get('email').touched}" 
+              />
+              <div *ngIf="form.get('email').invalid && form.get('email').touched" class="invalid-feedback">
+                Inserisci un'email valida.
+              </div>
+            </div>
+        
+            <!-- Numero di Telefono -->
+            <div class="col-md-6 margin-left">
+              <label for="phone_number" class="form-label"></label>
+              <input 
+                formControlName="phone_number" 
+                id="phone_number" 
+                class="form-control mktoField mktoTextField mktoHasWidth mktoRequired"
+                placeholder="Phone Number"
+                [ngClass]="{'is-invalid': form.get('phone_number').invalid && form.get('phone_number').touched}" 
+              />
+              <div *ngIf="form.get('phone_number').invalid && form.get('phone_number').touched" class="invalid-feedback">
+                Il numero di telefono è obbligatorio.
+              </div>
+            </div>
+        
+            <!-- Tipo di Istituzione -->
+            <div class="col-md-6 margin-left">
+              <label for="institution_type" class="form-label"></label>
+              <select 
+                formControlName="institution_type" 
+                id="institution_type" 
+                class="form-control mktoField mktoHasWidth mktoRequired"
+                [ngClass]="{'is-invalid': form.get('institution_type').invalid && form.get('institution_type').touched}"
+              >
+                <option value="" disabled selected>Choose your Institution Type</option>
+                <option>University/4 Year College</option>
+                <option>2 Year College</option>
+                <option>Graduate or Professional School</option>
+                <option>Ministry of Education</option>
+                <option>Other</option>
+              </select>
+              <div *ngIf="form.get('institution_type').invalid && form.get('institution_type').touched" class="invalid-feedback">
+                Il tipo di istituzione è obbligatorio.
+              </div>
+            </div>
+        
+            <!-- Nome dell'Istituzione -->
+            <div class="col-md-6 margin-left">
+              <label for="institution_name" class="form-label"></label>
+              <input 
+                formControlName="institution_name" 
+                id="institution_name" 
+                class="form-control mktoField mktoTextField mktoHasWidth mktoRequired"
+                placeholder="Institution Name"
+                [ngClass]="{'is-invalid': form.get('institution_name').invalid && form.get('institution_name').touched}" 
+              />
+              <div *ngIf="form.get('institution_name').invalid && form.get('institution_name').touched" class="invalid-feedback">
+                Il nome dell'istituzione è obbligatorio.
+              </div>
+            </div>
+        
+            <!-- Ruolo -->
+            <div class="col-md-6 margin-left">
+              <label for="job_role" class="form-label"></label>
+              <select 
+                formControlName="job_role" 
+                id="job_role" 
+                class="form-control mktoField mktoHasWidth mktoRequired"
+                [ngClass]="{'is-invalid': form.get('job_role').invalid && form.get('job_role').touched}"
+              >
+                <option value="" disabled selected>Choose your Job Role</option>
+                <option>President/Provost</option>
+                <option>Chancellor/Rector</option>
+                <option>Vice-President/Vice-Provost</option>
+                <option>Vice-Chancellor/Vice-Rector</option>
+                <option>Registrar</option>
+                <option>CEO</option>
+                <option>COO/CIO</option>
+                <option>Dean</option>
+                <option>Department Head</option>
+                <option>Director</option>
+                <option>Professor</option>
+                <option>Student</option>
+              </select>
+              <div *ngIf="form.get('job_role').invalid && form.get('job_role').touched" class="invalid-feedback">
+                Il ruolo è obbligatorio.
+              </div>
+            </div>
+        
+            <!-- Dipartimento -->
+            <div class="col-md-6 margin-left">
+              <label for="department" class="form-label"></label>
+              <select 
+                formControlName="department" 
+                id="department" 
+                class="form-control mktoField mktoHasWidth mktoRequired"
+                [ngClass]="{'is-invalid': form.get('department').invalid && form.get('department').touched}"
+              >
+                <option value="" disabled selected>Choose your Department</option>
+                <option>Academic Affairs</option>
+                <option>Career Services</option>
+                <option>Continuing Education</option>
+                <option>Enrollment Management</option>
+                <option>Executive Leadership</option>
+                <option>International</option>
+                <option>Strategic Planning</option>
+                <option>Student Affairs</option>
+                <option>Teaching/Faculty/Research</option>
+                <option>Other</option>
+              </select>
+              <div *ngIf="form.get('department').invalid && form.get('department').touched" class="invalid-feedback">
+                Il dipartimento è obbligatorio.
+              </div>
+            </div>
+        
+            <!-- Bisogni -->
+            <div class="col-md-6 margin-left">
+              <label for="needs" class="form-label"></label>
+              <select 
+                formControlName="needs" 
+                id="needs" 
+                class="form-control mktoField mktoHasWidth mktoRequired"
+                [ngClass]="{'is-invalid': form.get('needs').invalid && form.get('needs').touched}"
+              >
+                <option value="" disabled selected>Choose your Needs</option>
+                <option>Get in touch with sales</option>
+                <option>Existing customer support</option>
+                <option>Learner support</option>
+                <option>Courses for myself</option>
+                <option>Other</option>
+              </select>
+              <div *ngIf="form.get('needs').invalid && form.get('needs').touched" class="invalid-feedback">
+                Indica i tuoi bisogni.
+              </div>
+            </div>
+        
+            <!-- Paese -->
+            <div class="col-md-6 margin-left">
+              <label for="country" class="form-label"></label>
+              <input 
+                formControlName="country" 
+                id="country" 
+                class="form-control mktoField mktoTextField mktoHasWidth mktoRequired"
+                placeholder="Country"
+                [ngClass]="{'is-invalid': form.get('country').invalid && form.get('country').touched}" 
+              />
+              <div *ngIf="form.get('country').invalid && form.get('country').touched" class="invalid-feedback">
+                Il paese è obbligatorio.
+              </div>
+            </div>
+        <div class="mt-3">
+              <p class="terms-text">
+                By submitting your info in the form above, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Notice</a>. We may use this info to contact you and/or use data from third parties to personalize your experience.
+              </p>
+            </div>
+            <!-- Pulsante Submit -->
+            <div class="mt-3 text-center">
+              <button type="submit" class="btn btn-primary-1 btn-pad" [disabled]="form.invalid">Submit</button>
+            </div>
+        
+          </div>
+        </form>
+        
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BLACK LAYOUT -->
+
+<div class="container cta-section">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="cta-heading">Contribuisci a preparare laureati pronti per la carriera</h2>
+      <p class="cta-description">Amplia il tuo raggio d'azione, migliora il tuo programma di studi e fornisci strumenti a studenti e docenti con Coursera for Campus.</p>
+    </div>
+    <div class="col-md-12 d-flex align-items-center justify-content-center move-container-2">
+      <div>
+        <a href="https://www.coursera.org/campus/learn-more" class="btn btn-primary m-2">Contattaci</a>
+        <a href="https://www.coursera.org/campus/compare-plans" class="btn btn-secondary m-2">Confronta i piani</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CARD -->
+
+<div class="container card-container pt-5">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let card of cards">
+      <div class="card">
+        <div class="card-body padding-change">
+          <h2 class="card-title">{{ card.title }}</h2>
+          <p class="card-text">{{ card.description }}</p>
+          <button type="button" (click)="window.location.href = card.link">
+            {{ card.buttonText }}
+            <svg aria-hidden="true" fill="none" focusable="false" height="20" viewBox="0 0 20 20" width="20">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16.793 9.5L9.646 2.354l.708-.708L18.707 10l-8.353 8.354-.708-.707 7.147-7.147H2v-1h14.793z"
+                fill="currentColor"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

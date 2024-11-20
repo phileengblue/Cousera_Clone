@@ -1,0 +1,15 @@
+
+img {
+   width: 100%;
+}
+
+.SezunoImg{
+      display: inline-block;
+}
+
+@media screen and (max-width:992) {
+   .SezunoImg {
+    display: none;
+   }
+  
+}

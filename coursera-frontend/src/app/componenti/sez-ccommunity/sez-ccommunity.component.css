@@ -1,0 +1,29 @@
+.box-img {
+    width: 202px;
+    height: 202px;
+}
+
+.sezCC-textColor {
+    color: #0058d4;
+}
+
+.divider {
+    width: 68px;
+    border-top: 2px solid #0058d4;
+}
+
+.carousel-control-next-icon {
+    background-image: url('../../../assets/icons/chevron_right_24dp_0058D4_FILL0_wght400_GRAD0_opsz24.png');
+    
+}
+
+.carousel-control-prev-icon {
+    background-image: url('../../../assets/icons/chevron_left_24dp_0058D4_FILL0_wght400_GRAD0_opsz24.png');
+    
+}
+
+.sezCCcontainer-Width{
+    width: 304px;
+}
+
+

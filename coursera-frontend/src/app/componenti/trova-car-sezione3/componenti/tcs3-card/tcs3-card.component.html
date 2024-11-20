@@ -1,0 +1,31 @@
+<div class="card mb-4 tcs3-cardWH">
+    <img src="{{certificate.imgCard}}" class="card-img-top" alt="...">
+    <div class="card-body text-start">
+      <h5 class="Sez-tcCard-Title">{{certificate.title}}</h5>
+      <p class="SezSSTitle">{{certificate.description}}</p>
+      <p class="SezSSTitle fw-medium">Ottimo se mi piace</p>
+    <nz-tag class="SezCaption tagLike" *ngFor="let key of certificate.key">{{key}}</nz-tag>
+    <hr class="hr"/>
+    <p class="SezCaption"><span class="fw-medium"> {{certificate.stipendioM}} dollari</span> stipendio Medio¹</p>
+    <p class="SezCaption"><span class="fw-medium"> {{certificate.postiL}} </span> posti di lavoro disponibili</p>
+    <hr class="hr"/>
+    <p class="SezSSTitle fw-medium">Credenziali di partner leader</p>
+    <div  *ngFor="let cardCert of tcseCertificate">           
+            <div class="row " *ngIf="certificate.tag === cardCert.tag">
+                <a href="{{cardCert.urlpage}}">
+                    <div  class="col-12 d-flex align-items-center" >
+                        <div class="border border-black align-items-center m-1 rounded"style="width: 40px; height: 40px;">
+                            <img class="p-1" src="{{cardCert.urlimg}}" style="width: 38px; height: 38px;" >
+                        </div>
+                        <div class="ms-2">
+                            <a class="SezLink">{{cardCert.title}}</a>
+                        </div>
+                    </div>
+                </a>
+            </div>   
+        <div class="mb-2"></div>
+       
+        
+    </div>
+
+  </div>

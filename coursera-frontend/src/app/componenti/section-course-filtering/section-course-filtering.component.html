@@ -1,0 +1,595 @@
+<section class="container-lg">
+    <!-- title filter -->
+    <div class="row mb-2 mt-3">
+
+        <div class="col-12 col-lg-2" [hidden]="!isMobileOrTablet()">
+            <div class="row">
+                <div class="col">
+                    <h2 class="SCF-fontTitle m-0 h-auto">Filtra per</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-10">
+            <div class="row d-flex justify-content-between mt-2">
+                <!-- word of filter for Mobile and Tablet -->
+                <div class="col-12" [hidden]="isMobileOrTablet()">
+                    <div class="row mb-4 mt-3">
+                        <div class="col-12">
+                            <h2 class="SCF-fontTitle ">Risultati per "{{this.inputSearchBar}}"</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- word of filter -->
+                <div class="col-5 col-lg-9">
+                    <div class="row" *ngIf="isMobileOrTablet(); else buttonFilter">
+                        <div class="col-12">
+                            <h2 class="SCF-fontTitle ">Risultati per "{{this.inputSearchBar}}"</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- order filter -->
+                <div class="col-7 col-lg-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="dropdown d-flex justify-content-end">
+                                <button class="buttonOrder" type="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false" (click)="OnDropDown()">
+                                    <span>Ordina per:</span> {{cgOrder}}
+                                    <svg [ngClass]="{'rotated': isActive}" xmlns="http://www.w3.org/2000/svg"
+                                        height="30px" viewBox="0 -960 960 960" width="30px" fill="#5b6680">
+                                        <path d="M480-525 291-336l-51-51 240-240 240 240-51 51-189-189Z" />
+                                    </svg>
+                                </button>
+                                <ul class="dropdown-menu btnOrder-dropdown-menu p-3">
+                                    <li>
+                                        <div class="mb-3">
+                                            <a class="dropdown-item "
+                                                [ngClass]="{'btnOrder-dropdown': (cgOrder != 'Più recente'), 'btnOrder-dropdownCheck': (cgOrder === 'Più recente' ) }"
+                                                (click)="chengeOrder('Piu recente')">Più recente
+                                                <span [hidden]="!(cgOrder === 'Più recente')">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px"
+                                                        viewBox="0 -960 960 960" width="20px" fill="#0058d4">
+                                                        <path
+                                                            d="M389-267 195-460l51-52 143 143 325-324 51 51-376 375Z" />
+                                                    </svg></span> </a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="">
+                                            <a class="dropdown-item"
+                                                [ngClass]="{'btnOrder-dropdown': (cgOrder != 'Miglior corrispondenza'), 'btnOrder-dropdownCheck': (cgOrder === 'Miglior corrispondenza' ) }"
+                                                (click)="chengeOrder('Miglior corrispondenza')">Miglior corrispondenza
+                                                <span [hidden]="!(cgOrder === 'Miglior corrispondenza')">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px"
+                                                        viewBox="0 -960 960 960" width="20px" fill="#0058d4">
+                                                        <path
+                                                            d="M389-267 195-460l51-52 143 143 325-324 51 51-376 375Z" />
+                                                    </svg></span> </a>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- filter -->
+    <div class="row">
+        <!-- filter-colum-option -->
+        <div class="col-lg-2 ">
+            <div class="row scrollpage" *ngIf="isMobileOrTablet()">
+                <div class="col">
+                    <!-- filter oggetto -->
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="SCF-fontOptionTitle">Oggetto</h2>
+                            <div class="form-check" *ngFor="let object of objects | slice:0:itemToShowFilter[0]">
+                                <input class="form-check-input" type="checkbox" [ngModel]="object.selected"
+                                    [value]="object.value" id="{{object.id}}" (change)="toggleFilterObject(object)">
+                                <label class="form-check-label SCF-fontOptionCheck ms-1" for="object">
+                                    {{object.label}} <span class="DIT-Font_nameCompany">({{object.totalCourses}})</span>
+                                </label>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col">
+                                    <a class="linkmore" (click)="RMTShowMore('object')"
+                                        [hidden]="isVisibleBtnMore('object')">Mostra {{this.counterFilter[0]}} di
+                                        più</a>
+                                    <a class="linkmore" [hidden]="itemToShowFilter[0]<=itemToShowTotalFilter[0]"
+                                        (click)="btnShowLess('object')">Mostra di meno</a>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- filter Lingua -->
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h2 class="SCF-fontOptionTitle">Lingua</h2>
+                            <div class="form-check" *ngFor="let language of languages | slice:0:itemToShowFilter[1]">
+                                <input class="form-check-input" type="checkbox" [ngModel]="language.selected"
+                                    [value]="language.value" id="{{language.id}}"
+                                    (change)="toggleFilterObject(language)">
+                                <label class="form-check-label SCF-fontOptionCheck ms-1" for="language.id">
+                                    {{language.label}} <span
+                                        class="DIT-Font_nameCompany">({{language.totalCourses}})</span>
+                                </label>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col">
+                                    <a class="linkmore" (click)="RMTShowMore('language')"
+                                        [hidden]="isVisibleBtnMore('language')">Mostra {{this.counterFilter[1]}} di
+                                        più</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- filter Durata -->
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h2 class="SCF-fontOptionTitle">Durata</h2>
+                            <div class="form-check" *ngFor="let duration of durations|slice:0:itemToShowFilter[2]">
+                                <input class="form-check-input" type="checkbox" [ngModel]="duration.selected"
+                                    [value]="duration.value" id="{{duration.id}}"
+                                    (change)="toggleFilterObject(duration)">
+                                <label class="form-check-label SCF-fontOptionCheck ms-1" for="language.id">
+                                    {{duration.label}} <span
+                                        class="DIT-Font_nameCompany">({{duration.totalCourses}})</span>
+                                </label>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col" n>
+                                    <a class="linkmore" (click)="RMTShowMore('duration')"
+                                        [hidden]="isVisibleBtnMore('duration')">Mostra {{this.counterFilter[2]}} di
+                                        più</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- filter Prodotto di apprendimento -->
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h2 class="SCF-fontOptionTitle">Prodotto di apprendimento</h2>
+                            <div class="form-check"
+                                *ngFor="let learningP of learningProduct| slice:0:itemToShowFilter[3]">
+                                <input class="form-check-input" type="checkbox" [ngModel]="learningP.selected"
+                                    [value]="learningP.value" id="{{learningP.id}}"
+                                    (change)="toggleFilterObject(learningP)">
+                                <label class="form-check-label SCF-fontOptionCheck ms-1" for="language.id">
+                                    {{learningP.label}} <span
+                                        class="DIT-Font_nameCompany">({{learningP.totalCourses}})</span>
+                                </label>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col">
+                                    <a class="linkmore" (click)="RMTShowMore('learningProduct')"
+                                        [hidden]="isVisibleBtnMore('learningProduct')">Mostra {{this.counterFilter[3]}}
+                                        di più</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- filter Livello di difficoltà -->
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h2 class="SCF-fontOptionTitle">Livello</h2>
+                            <div class="form-check" *ngFor="let level of difficultyLevel| slice:0:itemToShowFilter[4]">
+                                <input class="form-check-input" type="checkbox" [ngModel]="level.selected"
+                                    [value]="level.value" id="{{level.id}}" (change)="toggleFilterObject(level)">
+                                <label class="form-check-label SCF-fontOptionCheck ms-1" for="language.id">
+                                    {{level.label}} <span class="DIT-Font_nameCompany">({{level.totalCourses}})</span>
+                                </label>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col">
+                                    <a class="linkmore" (click)="RMTShowMore('difficultyLevel')"
+                                        [hidden]="isVisibleBtnMore('difficultyLevel')">Mostra {{this.counterFilter[4]}}
+                                        di più</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- filter Educatore -->
+                    <div class="row mt-4">
+                        <div class="col">
+                            <h2 class="SCF-fontOptionTitle">Educatore</h2>
+                            <div class="form-check" *ngFor="let educator of educators | slice:0:itemToShowFilter[5]">
+                                <input class="form-check-input" type="checkbox" [ngModel]="educator.selected"
+                                    [value]="educator.value" id="{{educator.id}}"
+                                    (change)="toggleFilterObject(educator)">
+                                <label class="form-check-label SCF-fontOptionCheck ms-1" for="language.id">
+                                    {{educator.label}} <span
+                                        class="DIT-Font_nameCompany">({{educator.totalCourses}})</span>
+                                </label>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col">
+                                    <a class="linkmore" (click)="RMTShowMore('educator')"
+                                        [hidden]="isVisibleBtnMore('educator')">Mostra {{this.counterFilter[5]}} di
+                                        più</a>
+                                    <a class="linkmore" [hidden]="itemToShowFilter[5]<=itemToShowTotalFilter[5]"
+                                        (click)="btnShowLess('educator')">Mostra di meno</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- filter-colum-results (Cards) -->
+        <div class="col-lg-10">
+            <div class="row d-flex justify-content-center mb-2">
+                <div class="col">
+                    <nz-tag *ngFor="let tag of tags; let i= index" 
+                    [nzMode]= "'closeable'"
+                    (nzOnClose)="handleClose(tag)"
+                    class="DIT-Font-Text_of_tag tagFilter">
+                        {{ sliceTagName(tag) }}
+                    </nz-tag>
+                    <a class="linkmore" [hidden]="tags.length === 0" (click)="btnClearFilter()">Cancella tutto</a>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center g-2">
+                <div class="col-auto p-1" *ngFor="let course of filteredCourses">
+                    <div class="">
+                        <div class="card card-trasf rounded-4 p-0" style="width: 22rem;">
+                            <div class="card-img-top p-3">
+                                <img src={{course.courseImage}} class="card-img-top" alt="..." style="height: 177px;">
+                                <div class="DIT-divImgCover_span"
+                                    [hidden]="(course.price === null || course.price === 0) "><span>gratis</span> </div>
+                            </div>
+                            <div class="card-body">
+                                <!-- divImgText -->
+                                <div class="d-flex justify-content-start mb-2" data-bs-toggle="tooltip"
+                                    data-bs-title="">
+                                    <!-- divImgText -> divImg -->
+                                    <div class="DIT-divImg me-1">
+                                        <!-- divImgText -> divImg->boxImg -> Img -->
+                                        <img class="DIT-divImg_boxImg" src={{course.university.image}} alt="">
+                                    </div>
+                                    <!-- divImgText -> Text -->
+                                    <div class="mt-auto mb-auto">
+                                        <p class="DIT-Font_nameCompany m-0">
+                                            {{course.university.name}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row mb-4" style="height: 48px;">
+                                    <div class="col">
+                                        <h5 class="DIT-Font_Title_of_Course">
+                                            {{course.title}}
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="d-flex justify-content-start aligh-item-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px"
+                                                viewBox="0 -960 960 960" width="20px" fill="#f2d049">
+                                                <path
+                                                    d="m609-293-34-144 111-95-147-13-59-137v313l129 76ZM243-144l63-266L96-589l276-24 108-251 108 252 276 23-210 179 63 266-237-141-237 141Z" />
+                                            </svg>
+                                            <p class="DIT-Font_Title_of_Course m-0">{{course.average_vote}} <span
+                                                    class="DIT-Font_nameCompany">({{course.review_count}}
+                                                    revisioni)</span></p>
+                                        </div>
+                                    </div>
+                                    <p class="DIT-Font_nameCompany mb-0"> {{course.difficulty_level}} ·
+                                        {{course.productTypeDescription}} · {{course.duration}} {{course.duration_unit}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-5 pb-4"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<ng-template #buttonFilter>
+    <button type="button" class="btn buttonFilterResponse filter-fill" data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop" (click)="toggleContainer()">Filtri
+        <svg xmlns="http://www.w3.org/2000/svg" height="16px" viewBox="0 -960 960 960" width="16px">
+            <path
+                d="M456-144v-240h72v84h288v72H528v84h-72Zm-312-84v-72h240v72H144Zm144-132v-84H144v-72h144v-84h72v240h-72Zm144-84v-72h384v72H432Zm144-132v-240h72v84h168v72H648v84h-72Zm-432-84v-72h384v72H144Z" />
+        </svg>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog-scrollable">
+            <div class="modal-dialog modal-dialog-filter modal-fullscreen m-0">
+                <div class="modal-content modal-content-filter">
+                    <div class="modal-header modal-header-filter d-flex justify-content-between">
+                        <h1 class="RespMT-Modal_FontTitle" id="staticBackdropLabel">Filter per:</h1>
+                        <button type="button" class="btn btn-close_custom d-flex align-items-center fill-custom"
+                            data-bs-dismiss="modal" aria-label="Close">
+                            Chiudi
+                            <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px">
+                                <path
+                                    d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z" />
+                            </svg>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-12">
+                            <div class="row">
+                                <div class="accordion accordion-flush" id="accordionFlushExample">
+                                    <!-- filter di Oggetto -->
+                                    <div class="accordion-item acc-border">
+                                        <h2 class="accordion-header">
+                                            <button class="btn btn-accordion RespMT-Modal_FontButtonAccordion"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseObject" aria-expanded="false"
+                                                aria-controls="flush-collapseObject" (click)="toggleDropDown(0)">
+                                                <svg class="" [ngClass]="{'rotated': isCollapsed[0]}"
+                                                    xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#5b6680">
+                                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                                                </svg> Oggetto
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseObject" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="form-check"
+                                                    *ngFor="let object of objects | slice:0:itemToShowFilter[0]">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [ngModel]="object.selected" [value]="object.value"
+                                                        id="{{object.id}}" (change)="toggleFilterObject(object)">
+                                                    <label class="form-check-label SCF-fontOptionCheck ms-1"
+                                                        for="object">
+                                                        {{object.label}} <span
+                                                            class="DIT-Font_nameCompany">({{object.totalCourses}})</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center mb-3">
+                                                <div class="col">
+                                                    <button class="buttonRMTMoreShow" (click)="RMTShowMore('object')"
+                                                        [hidden]="isVisibleBtnMore('object')">Mostra
+                                                        di più</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- filter di Lingua  -->
+                                    <div class="accordion-item acc-border">
+                                        <h2 class="accordion-header">
+                                            <button
+                                                class="btn btn-accordion RespMT-Modal_FontButtonAccordion d-flex flex-column"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseLanguage" aria-expanded="false"
+                                                aria-controls="flush-collapseLanguage" (click)="toggleDropDown(1)">
+                                                <span> <svg class="" [ngClass]="{'rotated': isCollapsed[1]}"
+                                                        xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                        viewBox="0 -960 960 960" width="24px" fill="#5b6680">
+                                                        <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                                                    </svg> Lingua </span>
+                                                <span class="RespMT-Modal_FontButtonInfo ms-4">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px"
+                                                        viewBox="0 -960 960 960" width="20px" fill="#0f1114">
+                                                        <path
+                                                            d="M444-288h72v-240h-72v240Zm35.79-312q15.21 0 25.71-10.29t10.5-25.5q0-15.21-10.29-25.71t-25.5-10.5q-15.21 0-25.71 10.29t-10.5 25.5q0 15.21 10.29 25.71t25.5 10.5Zm.49 504Q401-96 331-126t-122.5-82.5Q156-261 126-330.96t-30-149.5Q96-560 126-629.5q30-69.5 82.5-122T330.96-834q69.96-30 149.5-30t149.04 30q69.5 30 122 82.5T834-629.28q30 69.73 30 149Q864-401 834-331t-82.5 122.5Q699-156 629.28-126q-69.73 30-149 30Zm-.28-72q130 0 221-91t91-221q0-130-91-221t-221-91q-130 0-221 91t-91 221q0 130 91 221t221 91Zm0-312Z" />
+                                                    </svg>
+                                                    Il linguaggio utilizzato durante il corso, sia nelle lezioni che
+                                                    nelle
+                                                    valutazioni.
+                                                </span>
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseLanguage" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="form-check"
+                                                    *ngFor="let language of languages| slice:0:itemToShowFilter[1]">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [ngModel]="language.selected" [value]="language.value"
+                                                        id="{{language.id}}" (change)="toggleFilterObject(language)">
+                                                    <label class="form-check-label SCF-fontOptionCheck ms-1"
+                                                        for="object">
+                                                        {{language.label}} <span
+                                                            class="DIT-Font_nameCompany">({{language.totalCourses}})</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center mb-3">
+                                                <div class="col">
+                                                    <button class="buttonRMTMoreShow" (click)="RMTShowMore('language')"
+                                                        [hidden]="isVisibleBtnMore('language')">Mostra di più</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- filter di Prodotto di apprendimento -->
+                                    <div class="accordion-item acc-border">
+                                        <h2 class="accordion-header">
+                                            <button class="btn btn-accordion RespMT-Modal_FontButtonAccordion"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseLearningProduct" aria-expanded="false"
+                                                aria-controls="flush-collapseObject" (click)="toggleDropDown(2)">
+                                                <svg class="" [ngClass]="{'rotated': isCollapsed[2]}"
+                                                    xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#5b6680">
+                                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                                                </svg> Prodotto di apprendimento
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseLearningProduct" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="form-check"
+                                                    *ngFor="let product of learningProduct| slice:0:itemToShowFilter[3]">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [ngModel]="product.selected" [value]="product.value"
+                                                        id="{{product.id}}" (change)="toggleFilterObject(product)">
+                                                    <label class="form-check-label SCF-fontOptionCheck ms-1"
+                                                        for="object">
+                                                        {{product.label}} <span
+                                                            class="DIT-Font_nameCompany">({{product.totalCourses}})</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center mb-3">
+                                                <div class="col">
+                                                    <button class="buttonRMTMoreShow"
+                                                        (click)="RMTShowMore('learningProduct')"
+                                                        [hidden]="isVisibleBtnMore('learningProduct')">Mostra di
+                                                        più</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- filter di Livello -->
+                                    <div class="accordion-item acc-border">
+                                        <h2 class="accordion-header">
+                                            <button class="btn btn-accordion RespMT-Modal_FontButtonAccordion"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseLevel" aria-expanded="false"
+                                                aria-controls="flush-collapseLevel" (click)="toggleDropDown(3)">
+                                                <svg class="" [ngClass]="{'rotated': isCollapsed[3]}"
+                                                    xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#5b6680">
+                                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                                                </svg> Livello
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseLevel" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="form-check"
+                                                    *ngFor="let level of difficultyLevel| slice:0:itemToShowFilter[4]">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [ngModel]="level.selected" [value]="level.value"
+                                                        id="{{level.id}}" (change)="toggleFilterObject(level)">
+                                                    <label class="form-check-label SCF-fontOptionCheck ms-1"
+                                                        for="object">
+                                                        {{level.label}} <span
+                                                            class="DIT-Font_nameCompany">({{level.totalCourses}})</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center mb-3">
+                                                <div class="col">
+                                                    <button class="buttonRMTMoreShow"
+                                                        (click)="RMTShowMore('difficultyLevel')"
+                                                        [hidden]="isVisibleBtnMore('difficultyLevel')">Mostra di
+                                                        più</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- filter di Durata -->
+                                    <div class="accordion-item acc-border">
+                                        <h2 class="accordion-header">
+                                            <button class="btn btn-accordion RespMT-Modal_FontButtonAccordion"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseDuration" aria-expanded="false"
+                                                aria-controls="flush-collapseDuration" (click)="toggleDropDown(4)">
+                                                <svg class="" [ngClass]="{'rotated': isCollapsed[4]}"
+                                                    xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#5b6680">
+                                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                                                </svg> Durata
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseDuration" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="form-check"
+                                                    *ngFor="let duration of durations|slice:0:itemToShowFilter[2]">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [ngModel]="duration.selected" [value]="duration.value"
+                                                        id="{{duration.id}}" (change)="toggleFilterObject(duration)">
+                                                    <label class="form-check-label SCF-fontOptionCheck ms-1"
+                                                        for="object">
+                                                        {{duration.label}} <span
+                                                            class="DIT-Font_nameCompany">({{duration.totalCourses}})</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center mb-3">
+                                                <div class="col">
+                                                    <button class="buttonRMTMoreShow" (click)="RMTShowMore('duration')"
+                                                        [hidden]="isVisibleBtnMore('duration')">Mostra di più</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- filter di Educatore -->
+                                    <div class="accordion-item acc-border">
+                                        <h2 class="accordion-header">
+                                            <button class="btn btn-accordion RespMT-Modal_FontButtonAccordion"
+                                                type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#flush-collapseEducator" aria-expanded="false"
+                                                aria-controls="flush-collapseLevel" (click)="toggleDropDown(5)">
+                                                <svg class="" [ngClass]="{'rotated': isCollapsed[5]}"
+                                                    xmlns="http://www.w3.org/2000/svg" height="24px"
+                                                    viewBox="0 -960 960 960" width="24px" fill="#5b6680">
+                                                    <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                                                </svg> Educatore
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseEducator" class="accordion-collapse collapse"
+                                            data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="form-check"
+                                                    *ngFor="let educator of educators| slice:0:itemToShowFilter[5]">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        [ngModel]="educator.selected" [value]="educator.value"
+                                                        id="{{educator.id}}" (change)="toggleFilterObject(educator)">
+                                                    <label class="form-check-label SCF-fontOptionCheck ms-1"
+                                                        for="object">
+                                                        {{educator.label}} <span
+                                                            class="DIT-Font_nameCompany">({{educator.totalCourses}})</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center mb-3">
+                                                <div class="col">
+                                                    <button class="buttonRMTMoreShow" (click)="RMTShowMore('educator')"
+                                                        [hidden]="isVisibleBtnMore('educator')">Mostra di più</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container modal-footer-filter">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="row d-flex justify-content-center">
+                                    <button type="button" class="btn-apply_custom" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        Applica
+                                    </button>
+                                </div>
+
+                            </div>
+                            <div class="col-6">
+                                <div class="row d-flex justify-content-center">
+                                    <button type="button" class="btn-clearAll_custom" (click)="btnClearFilter()">
+                                        Cancella tutto
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</ng-template>

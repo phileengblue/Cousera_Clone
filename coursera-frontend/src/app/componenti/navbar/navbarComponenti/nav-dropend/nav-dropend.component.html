@@ -1,0 +1,40 @@
+<div class="conteiner-fluid ps-lg-4">
+    <div class="row p-2">
+        <div class="col-lg-6 col-12 p-2 p-lg-4" *ngFor="let item of menuElement; let i = index;">
+            <ng-container *ngIf="i < 3; else elseTemplate">
+                <p class="nv-dd_de-textTitle">{{item.value}} </p>
+                <div class="divider"></div>
+                <div class="container" *ngFor="let element of Elements">
+                    <div class="row mb-3" *ngIf="element.category_id === item.id">
+                        <a class="link-Uni" [href]="element.id === 11 ? 'master-of-applied-data-science-umich' : element.urlpage">
+                            <div  class="col-12 d-flex align-items-center">
+                                <div class="align-items-center m-1 rounded p-1"style="width: 50px; height: 50px;">
+                                    <img class="" src="{{element.university.image.url}}" style="width: 40px; height: 40px;" >
+                                </div>
+                                <div class="ms-2">
+                                    <p class="search-text-subcategory nv.dd_de-textSubItem m-0">{{element.university.name}}</p>
+                                    <p class="search-text-description nv.dd_de-textItem m-0">{{element.title}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>  
+                </div>
+                <p><a class="link-underline link-underline-opacity-0" href="#">Visualizza tutte le lauree {{item.value}} </a>
+                </p>
+            </ng-container>
+            <ng-template #elseTemplate>
+                <div class="conteiner" *ngIf="i === 3">
+                    <p class="nv-dd_de-textTitle"> Altre lauree</p>
+                    <div class="divider"></div>
+                    <div class="row">
+                        <div class="col-auto " *ngFor="let item of menuElement.slice(3);">
+                            <p><a class="link-underline link-underline-opacity-0" href="#">{{item.value}}</a></p>
+                        </div>
+                    </div>
+                    <p><a class="link-underline link-underline-opacity-0" href="#">Visualizza tutte le lauree </a></p>
+                </div>
+            </ng-template>
+
+        </div>
+    </div>
+</div>

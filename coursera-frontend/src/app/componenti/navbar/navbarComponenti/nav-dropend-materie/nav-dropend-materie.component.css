@@ -1,0 +1,28 @@
+.divider {
+    border-top: 1px solid #bbb;
+}
+
+.link-Uni {
+  text-decoration: none;
+}
+
+.btn-navbar {
+  color: #0d6efd;
+  background-color: #fff;
+}
+
+.search-text-description{
+    color: #373a3c;
+  }
+  
+  .search-text-subcategory{
+    color:  #63676b;
+  }
+
+  .scrollable {
+    max-height: 100vh;
+    overflow-y: auto;
+}
+.nv-dd_de-textTitle:active {
+  color: rgb(15,17,20);
+}

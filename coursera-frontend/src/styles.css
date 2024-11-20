@@ -1,0 +1,198 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('./assets/fonts/source_sans_3/SourceSans3-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('./assets/fonts/source_sans_3/static/SourceSans3-Bold.ttf') format('truetype');
+  font-weight:bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  src: url('./assets/fonts/source_sans_3/static/SourceSans3-Light.ttf') format('truetype');
+  font-weight:lighter;
+  font-style: normal;
+}
+
+* {
+  font-family: Arial,  sans-serif;
+}
+/* lato mobile */
+.nav-btn_dd-textTitle { /*(title-response mobile) */
+  font-size: 14px;
+  line-height: 14px;
+} 
+.nav-btn_dd-textsubTitle { /*(item -response mobile)*/
+  font-size: 14px;
+  line-height: 14px;
+} 
+
+.SezTitle{
+  color:rgb(15,17,20);
+  font-size: 36px;
+  line-height: 48px;
+}
+
+.SezSottoTitle{
+  color:rgb(15,17,20);
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.SezSubTitle{
+  color:rgb(15,17,20);
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.SezCaption{
+  color:rgb(55,58,60);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.szlg_SubTitle {
+  color: rgb(15,17,20);
+  font-size: 29px;
+  line-height: 30px;
+}
+
+.szCC_CCtitle {
+  color: rgb(15, 17, 20);
+  font-weight: normal;  
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.szCC_SubTitle {
+  color: rgb(33,37,41);
+  font-weight: 300;  
+  font-size: 18px;
+  line-height: 24px;
+}
+
+
+
+@media screen and (min-width: 992px) { /* lato laptop */
+  .nav-dd_de-textDescription {
+    color:rgb(94,94,94);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+    
+  .nv-dd_de-textTitle {
+  color:rgb(31,31,31);
+  font-weight: 700; 
+  font-size: 16px;
+  line-height: 24px;
+  }
+
+  .SezTitle{
+    font-size: 44px;
+    line-height: 52px;
+  }
+  
+  .SezSSTitle{
+    color:rgb(31,31,31);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  
+  .nv.dd_de-textItem {  /*link-inizia */
+    color:rgb(31,31,31);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  } 
+
+  .nv.dd_de-textSubItem {
+    color:rgb(94,94,94);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+  } 
+  
+  .nav-sb-textTitle {
+    color:rgb(0,0,0, 0.87);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+  }
+ 
+  .nav-sb-textsubTitle {
+    color: rgb(99,99,99);
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .nav-btn_dd-textTitle { /*(title) */
+    color: rgb(55,58,60);
+    font-size: 20px;
+    line-height: 28px;
+  } 
+
+  .nav-btn_dd-textsubTitle { /*(item)*/
+    color: rgb(0,0,0);
+    font-weight: 400;  
+    font-size: 14px;
+    line-height: 21px;
+} 
+
+
+.szHero_s20h24w400 {
+  color: rgb(0,0,0);
+  font-weight: 400;  
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.szHero_s64h64w600 {
+  color: rgb(0,0,0);
+  font-weight: 400;  
+  font-size: 64px;
+  line-height: 64px;
+}
+
+.szCC_title {
+  font-weight: 700;  
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.szCC_card-p { /*(title) */
+  color: rgb(55,58,60);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+} 
+
+.szCC_SubTitle {
+  color: rgb(0,0,0);
+  font-weight: 300;  
+  font-size: 28px;
+  line-height: 36px;
+}
+
+
+.szCC_CCtitle {
+  color: rgb(15, 17, 20);
+  font-weight: normal;  
+  font-size: 44px;
+  line-height: 52px;
+}
+
+
+}

@@ -1,0 +1,38 @@
+
+.tagStyle {
+    border-radius: 12px;
+   
+    & span {
+        margin: 20px;
+    }
+
+}
+
+.tagStyle:hover {
+    color:rgb(0, 66, 158);
+    border-color:rgb(0, 66, 158);
+    background: rgb(242, 248, 255);
+}
+
+.tagStyle:active {
+    color:rgb(0, 66, 158);
+    border-color:rgb(0, 66, 158);
+    background: rgb(242, 248, 255);
+}
+
+.active {
+    color: rgb(255, 255, 255);
+    border-color: rgb(31, 31, 31);
+    background: rgb(31, 31, 31);
+
+}
+.active:hover {
+    color: rgb(255, 255, 255);
+    border-color: rgb(0, 66, 158);
+    background: rgb(0, 66, 158);
+
+}
+
+
+
+

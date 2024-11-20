@@ -1,0 +1,63 @@
+.acc-border {
+    border: 2px solid rgba(0, 0, 0, 0.175);
+    border-radius: 4px;
+    &:hover {
+        border-color: #1c57b8 ;
+    }
+}
+
+.tcs7-title {
+  color: rgb(91, 102, 128);
+  font-weight: normal;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.tcs7-acc_header-Q {
+  color: rgb(15,17,20);
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.tcs7-acc_body-R {
+  color: rgb(15,17,20);
+  font-weight: lighter;
+  font-size: 16px;
+  line-height: 20px;
+}
+.accordion-body {
+
+}
+
+
+.btn-accordion {
+    width: 100%;
+    height: 54px;
+    text-align: start;
+    border-start-start-radius: 4px;
+    border-start-end-radius: 4px;
+    border-end-start-radius: 0px;
+    border-end-end-radius: 0px;
+    &:hover {
+        background-color:#f0f6ff ;
+    }  
+}
+
+.btn:active {
+  border: none;
+}
+
+.rotate-icon {
+    transition: transform 0.3s ease;
+  }
+  
+  .rotated {
+    transform: rotate(90deg); /* Rotate the icon */
+  }
+
+  .accordion-body_m-16{
+    margin: 0px 16px 16px 16px;
+  }
+
+  

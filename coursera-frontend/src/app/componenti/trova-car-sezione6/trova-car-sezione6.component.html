@@ -1,0 +1,607 @@
+<section class="container-fluid bg-color">
+    <div class="row pb-5"></div>
+    <div class="container">
+        <!-- div row title -->
+    <div class="row">
+        <div class="col">
+            <h3 class="tcs6-titleCarosel">
+                Esplora i nostri certificati professionali che rivoluzioneranno la tua
+                carriera
+            </h3>
+        </div>
+    </div>
+    </div>
+    <!-- div row carousello -->
+    <div class="row">
+        <div [ngSwitch]="functionResponse()" class="col">
+            <div *ngSwitchCase="'mobile'">
+                <app-tcs6-carosel-for-mobile></app-tcs6-carosel-for-mobile>
+            </div>
+            <div *ngSwitchCase="'tablet'">
+                <app-tcs6-carosel-for-tablet></app-tcs6-carosel-for-tablet>
+            </div>
+            <div *ngSwitchDefault>
+                <div id="carouselCertifRLT" class="carousel slide"
+                    style="min-height: 380px;">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselCertifRLT" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselCertifRLT" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselCertifRLT" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselCertifRLT" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                    </div>
+                    <!-- Slide 1 -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active ">
+                            <div class="d-flex justify-content-center">
+                                <!-- Slide1-Card 1 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/4a/cb36835ae3421187080898a7ecc11d/Google-G_360x360.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 33px; height: 81px;">
+                                                    <a class="tcs6-title">Google IT Support</a>
+                                                    <p class="tcs6-subTitle">Google</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/e7/246d5ceb234f5bb50ec6b6cf361339/Amie-Hanbury-Hero-Image-.jpg?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <!-- Slide1-Card 2 card-Certif -->
+                                <a href="dettagli_corsi">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/4a/cb36835ae3421187080898a7ecc11d/Google-G_360x360.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 33px; height: 81px;">
+                                                    <a class="tcs6-title">Google Data Analytics</a>
+                                                    <p class="tcs6-subTitle">Google</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/41/4d3d7c05fb42729c9d90352e072ca3/1060x596_GCC-photos_Karrim.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <!-- slide1-Card 3 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/4a/cb36835ae3421187080898a7ecc11d/Google-G_360x360.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 33px; height: 81px;">
+                                                    <a class="tcs6-title">Google Project Management</a>
+                                                    <p class="tcs6-subTitle">Google</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/bf/b07da9bbe24cb8b0daa00010ff8b22/1060x596_GCC-photos_Ashley.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- slide1-Card 4 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/4a/cb36835ae3421187080898a7ecc11d/Google-G_360x360.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 33px; height: 81px;">
+                                                    <a class="tcs6-title">Google UX Design</a>
+                                                    <p class="tcs6-subTitle">Google</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/f9/f48728d31a4af3b8eba082c0b4cb18/1060x596_GCC-photos-1-.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item ">
+                            <div class="d-flex justify-content-center">
+                                <!-- Slide2-Card 1 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/73/e03b13a8e44df9b19eb279e5506396/360-x-360.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">Meta Social Media
+                                                         Marketing</a>
+                                                    <p class="tcs6-subTitle">Meta</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/02/41460a29d744dfa39106941eae2e02/fb-specialization.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <!-- Slide2-Card 2 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">IBM Data Science</a>
+                                                    <p class="tcs6-subTitle">IBM</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/23/22bc54f77f45a2b057f4ff518d272f/iStock-1169539468.jpg?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <!-- slide2-Card 3 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">IBM Data Analyst</a>
+                                                    <p class="tcs6-subTitle">IBM</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/63/baf9bea98641aeb8fd36a7b1291791/DA-PC_Image.jpg?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- slide2-Card 4 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">IBM Cybersecurity Analyst</a>
+                                                    <p class="tcs6-subTitle">IBM</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/b3/fb5ab03e844adc944e571555a05930/IBM-cybersecurity-PC.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-center">
+                                <!-- Slide3-Card 1 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/72/51d0a967254363b3c2c35be6c09b99/Salesforce-Institution-Square-180px-.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">Salesforce Sales Development Representative</a>
+                                                    <p class="tcs6-subTitle">Salesforce</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/ed/96c1a56aa14d9f80cb17f7db8ef189/Group-35.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <!-- Slide3-Card 2 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">IBM Full Stack Software Developer</a>
+                                                    <p class="tcs6-subTitle">IBM</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/18/2aa16c328a457cb910aa933bf2cd87/Professional-Certificate-Cloud-App.jpg?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <!-- Slide3-Card 3 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/0e/4bb2b81f8e453eab147bbb94bb53da/Intuit_Square_360x360_WhiteonBlue.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">Intuit Academy Bookkeeping</a>
+                                                    <p class="tcs6-subTitle">Intuit</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/a4/0ee0209fb444a38ade1afccde6355e/option2.jpg?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!-- Slide3-Card 4 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">IBM Data Analytics with Excel and R</a>
+                                                    <p class="tcs6-subTitle">IBM</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/a0/6bda7e8f7245b3ada2915a88e5ad65/DataAnalyticswith-ExcelandR-PC.jpg?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-item">
+                            <div class="d-flex justify-content-start" style="margin: 0 40px;">
+                                <!-- Slide4-Card 1 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/72/51d0a967254363b3c2c35be6c09b99/Salesforce-Institution-Square-180px-.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">Salesforce Sales Operations</a>
+                                                    <p class="tcs6-subTitle">Salesforce</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/ed/cc8056ad69478a99cf2f5b5995b1a4/05-05.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+
+                                    </div>
+                                </a>
+                                <!-- Slide4-Card 2 card-Certif -->
+                                <a href="TrovaCarriera">
+                                    <div class="tcs6-cardCertif-WH">
+                                        <!-- card-Certif -> div-text-logo -->
+                                        <div class="tcs6-dtl">
+                                            <!-- card-Certif -> div-logo-text-> box-log -->
+                                            <div class="tcs6-dlt_boxImage">
+                                                <div>
+                                                    <img src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/http://coursera-university-assets.s3.amazonaws.com/bb/f5ced2bdd4437aa79f00eb1bf7fbf0/IBM-Logo-Blk---Square.png?auto=format%2Ccompress&dpr=1&w=72&h=72"
+                                                        alt style="width: 54px; height: 54px;">
+                                                </div>
+                                            </div>
+                                            <!-- card-Certif -> div-logo-text-> box-text -->
+                                            <div class="tcs6-dlt_box-text">
+                                                <div style="width: 100%; height: 81px;">
+                                                    <a class="tcs6-title">IBM Data Engineering</a>
+                                                    <p class="tcs6-subTitle">IBM</p>
+                                                </div>
+                                            </div>
+                                            <div class="tcs6-dlt_box-subText">
+                                                <p class="tcs6-description">
+                                                    CERTIFICATO PROFESSIONALE
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="position-relative">
+                                            <!-- card-Certif -> Image Background -->
+                                            <div class="tcs6-cardCertif-boxImage"
+                                                style="  background-image: url('https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://d15cw65ipctsrr.cloudfront.net/1b/67a18a33de439c974816ebfd42e7b2/unnamed.png?auto=format%2Ccompress&dpr=1&w=268')">
+                                            </div>
+                                            <!-- card-Certif -> color Background -->
+                                            <div class="tcs6-cardCertif-BanckgroundColor"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselCertifRLT"
+                        data-bs-slide="prev">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
+                                fill="#1f1f1f">
+                                <path d="M400-80 0-480l400-400 61 61.67L122.67-480 461-141.67 400-80Z"></path>
+                            </svg>
+                        </span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselCertifRLT"
+                        data-bs-slide="next">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
+                                fill="#1f1f1f">
+                                <path d="m309.67-81.33-61-61.67L587-481.33 248.67-819.67l61-61.66 400 400-400 400Z">
+                                </path>
+                            </svg>
+                        </span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-5 mb-3"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <a class="tcs6-link">
+                    Esplora i certificati
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row pb-5"></div>
+</section>

@@ -1,0 +1,102 @@
+.background {
+    background-image: url("../../../assets/image/coursera wall.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.resolution {
+    max-width: 900px;
+    position: relative;
+    left: 796px;
+    border: 8px solid gray;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.logo-coursera{
+
+    width: 150px;
+    position: absolute;
+}
+
+.img-avatar{
+
+    width: 140px;
+}
+
+.img-hat {
+    width: 250px;
+    position: relative;
+    left: 69%;
+    transform: translateX(-50%);
+    
+
+    
+}
+
+.text-h2 {
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+h2, h5 {
+    color: #000;
+    font-weight: bold;
+}
+
+textarea, input[type="text"], input[type="url"], input[type="number"], input[type="file"], select, .form-control {
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+textarea:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="number"]:focus, input[type="file"]:focus, select:focus, .form-control:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0px 0px 10px rgba(74, 144, 226, 0.5);
+}
+
+.education-entry {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+button[type="button"], button[type="submit"], .btn-primary, .btn-secondary {
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #357ab8;
+}
+
+.btn-secondary {
+    background-color: #555;
+    border-color: #555;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #444;
+}

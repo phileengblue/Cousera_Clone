@@ -1,0 +1,49 @@
+<!-- Bottone per mostrare tutte le card in una modale -->
+<!-- <div class="show-more-button">
+  <button (click)="openCoursesModal()">Mostra tutti i corsi</button>
+</div> -->
+
+
+
+<!-- Modale personalizzata per visualizzare i corsi -->
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeCoursesModal()">&times;</span>
+    <h1 class="modal-title">Lista Corsi Disponibili</h1>
+    
+    <!-- Sezione per i filtri -->
+    <div class="filters">
+      <button (click)="applyDiscountRange('20-40')">Sconto 20-40%</button>
+      <button (click)="applyDiscountRange('40-60')">Sconto 40-60%</button>
+      <button (click)="applyDiscountRange('60-80')">Sconto 60-80%</button>
+      <button (click)="applyExpirationFilter()">Corsi in Scadenza</button>
+      
+      <button (click)="applyOrder()">Prezzo più alto</button>
+
+    </div>
+
+    <div class="course-grid">
+      <div *ngFor="let course of courses; let index = index" class="course-card">
+        <img
+          *ngIf="course.imageUrl"
+          [src]="course.imageUrl"
+          alt="{{ course.title }}"
+          [ngClass]="index === 1 ? 'course-image-special' : 'course-image'"
+        />
+
+        <div class="course-info">
+          <h2 class="course-title">{{ course.title }}</h2>
+          <p class="course-start-date"><strong>Data di inizio:</strong> {{ course.start_date }}</p>
+          <p class="course-prices">
+            <span class="original-price">Prezzo originale: {{ course.original_price | currency }}</span>
+            <br>
+            <span class="discounted-price">Prezzo scontato: {{ course.discounted_price | currency }}</span>
+          </p>
+          <p class="course-discount"><strong>Sconto:</strong> {{ course.discount_percentage }}</p>
+          <p class="days-remaining"><strong>Giorni rimanenti:</strong> {{ course.days_remaining }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

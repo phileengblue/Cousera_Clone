@@ -1,0 +1,152 @@
+/* Background della pagina */
+.thank-you-background {
+    background-image: url('../../../assets/image/ThankYou.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* Contenitore riepilogo */
+  .summary-content {
+    max-width: 800px;
+    max-height: 80vh;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow-y: auto;
+    animation: fadeIn 1s ease 2s forwards;
+    opacity: 0;
+    width: 600px;
+  }
+  
+  /* Gruppo di pulsanti */
+  .button-group {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px 0;
+    justify-content: flex-end;
+  }
+  
+  /* Titoli */
+  .text-h2 {
+    color: #333;
+    text-align: center;
+  }
+  
+  h2, h5 {
+    color: #000;
+  }
+  
+  .summary-content h5 {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #4a90e2;
+  }
+  
+  /* Testo e liste */
+  p, .summary-content p, .summary-content ul {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  /* Stile specifico per i titoli di studio */
+  .education-entry {
+    border: none;
+    padding: 8px 0;
+  }
+  
+  .education-entry p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .education-entry p strong {
+    color: #333;
+    display: inline-block;
+    width: 150px; /* Allinea le etichette */
+  }
+  
+  /* Link al sito */
+  .education-entry a {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+  
+  .education-entry a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Pulsante di reset */
+  .position-reset {
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
+  }
+  
+  /* Animazione */
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  .button-home{
+
+    right: 74%;
+    position: relative;
+    top: 15px;
+  }
+
+  .button-modify{
+
+    position: relative;
+    left: 23%;
+    top: 15px;
+
+
+  }
+
+  .button-save{
+
+    position: relative;
+    left: 30%;
+    top: 15px;
+
+
+  }
+
+  .button-cancel{
+
+    position: relative;
+    left: 30%;
+    top: 15px;
+
+
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

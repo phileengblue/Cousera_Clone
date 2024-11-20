@@ -1,0 +1,30 @@
+.tcs3-cardWH{
+    max-width: 26rem;
+    min-height: 863px;
+}
+
+.Sez-tcCard-Title{
+    color:rgb(31,31,31);
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.tagLike {
+    background-color: rgb(230, 231, 232);
+    margin-bottom: 5px;
+}
+
+.SezLink{
+    color:rgb(0, 88, 212);
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+@media screen and (max-width: 992px) {
+    .tcs3-cardWH{
+        min-height: auto;
+    }
+    
+}

@@ -1,0 +1,39 @@
+<!-- Mobile -->
+<section *ngIf="isMobile" class="rc-EnterpriseCtaRebrand">
+  <div class="container padding-custom">
+    <h2 class="h2">{{enterpriseText.title}}</h2>
+    <p>{{enterpriseText.description}}</p>
+    <a [href]="enterpriseText.businessLink" class="btn btn-primary" target="_blank">{{enterpriseText.buttonText}}</a>
+    <p>{{enterpriseText.smallTeamText}} 
+      <a [href]="enterpriseText.teamsLink" target="_blank">{{enterpriseText.smallTeamLinkText}}</a>
+    </p>
+
+    <div class="row logos-row">
+      <div *ngFor="let logo of logos" class="col-4 col-md-custom">
+        <img [src]="logo.src" class="img-content" [alt]="logo.alt" [ngClass]="logo.class">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Desktop -->
+<section *ngIf="!isMobile" class="rc-EnterpriseCtaRebrand">
+  <div class="container padding-custom d-flex">
+    <div class="col-6">
+      <h2 class="h2">{{enterpriseText.title}}</h2>
+      <p>{{enterpriseText.description}}</p>
+      <a [href]="enterpriseText.businessLink" class="btn btn-primary" target="_blank">{{enterpriseText.buttonText}}</a>
+      <p>{{enterpriseText.smallTeamText}} 
+        <a [href]="enterpriseText.teamsLink" target="_blank">{{enterpriseText.smallTeamLinkText}}</a>
+      </p>
+    </div>
+
+    <div class="col-6">
+      <div class="row logos-row">
+        <div *ngFor="let logo of logos" class="col-4 col-md-custom">
+          <img [src]="logo.src" class="img-flui img-content" [alt]="logo.alt">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

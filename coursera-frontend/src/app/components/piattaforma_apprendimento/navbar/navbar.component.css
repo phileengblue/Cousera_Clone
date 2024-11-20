@@ -1,0 +1,21 @@
+.bg-light-custom {
+    --bs-bg-opacity: 1;
+    background-color: #fff !important;
+}
+
+
+
+
+
+
+
+
+
+/* RESPONSIVE 768px */
+
+@media (max-width: 768px) {
+
+    
+    
+    
+}

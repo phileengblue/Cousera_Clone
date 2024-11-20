@@ -1,0 +1,34 @@
+<div class="container-fluid">
+
+  
+  <!-- Hero Section -->
+  <div class="row align-items-center color-background">
+    <div class="col-md-6 position-custom">
+      <h1 class="display-4-custom">{{ heroTitle }}</h1>
+      <p class="lead-custom">{{ heroDescription }}</p>
+      <a href="{{ contactLink }}" class="btn btn-primary-custom btn-lg-custom margin-mod">Contattaci</a>
+      <div class="move-link"><p class="mt-4 p-link ">
+        Vedi le opzioni, <a class="p-link" href="{{ comparePlansLink }}" target="_self">confronta i piani</a>
+        <svg class="icon" aria-hidden="true" focusable="false" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 3.5H6v1H2.5v9h9V10h1v4.5h-11v-11zM13.5 2.5H10v-1h4.5V6h-1V2.5z"></path>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.646 8.646l7-7 .708.708-7 7-.708-.708z"></path>
+        </svg>
+      </p></div>
+    </div>
+    <div class="col-md-6 d-md-block img-custom">
+      <div class="p-5"></div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <div class="container mt-4">
+    <div class="stat-container">
+      <div *ngFor="let stat of stats; let last = last" class="stat-item" [ngClass]="{ 'last-item': last }">
+        <h2 class="move-h2">{{ stat.value }}</h2>
+        <p>{{ stat.description }}</p>
+        <a href="#footnote">{{ stat.footnote }}</a>
+        <div class="separator" *ngIf="!isLastStat(stat)"></div>
+      </div>
+    </div>
+  </div>
+</div>

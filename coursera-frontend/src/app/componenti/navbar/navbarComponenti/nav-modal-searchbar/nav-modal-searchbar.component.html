@@ -1,0 +1,66 @@
+ <div>
+    <button class="button-search" nz-button nzType="default"  (click)="isShowModal()"><span nz-icon
+        nzType="search"></span></button>
+</div>
+    <div class="container-absolute conteiner-fluid mt-2"  *ngIf="showModal">
+      <div class="row">
+        
+        <div class="col-11">
+          <div class="row d-flex justify-content-center ms-2 mt-3">
+            <nz-input-group [nzSuffix]="suffixIconSearch"  class="">
+              <input 
+             type="text" 
+             nz-input  
+             placeholder="Cosa vuoi imparare?"
+             [(ngModel)]="inputValue"
+             (input)="onChange($event)"
+             [nzAutocomplete]="auto"
+             (keydown.enter)="onSearch()"
+             />
+           </nz-input-group>
+         <ng-template #suffixIconSearch>
+           <button nz-button nzType="primary" nzShape="circle"><span nz-icon nzType="search"></span></button>
+         </ng-template>
+         <nz-autocomplete  #auto>
+          <nz-auto-option [nzValue]="inputValue" (click)="onSearch()"
+          class ="inputSearchBarCass">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#0058d4"><path d="M765-144 526-383q-30 22-65.79 34.5-35.79 12.5-76.18 12.5Q284-336 214-406t-70-170q0-100 70-170t170-70q100 0 170 70t70 170.03q0 40.39-12.5 76.18Q599-464 577-434l239 239-51 51ZM384-408q70 0 119-49t49-119q0-70-49-119t-119-49q-70 0-119 49t-49 119q0 70 49 119t119 49Z"/></svg>
+            {{ inputValue }} </nz-auto-option>
+           <nz-auto-option
+       
+             *ngFor="let option of filteredOptions; trackBy: trackByCategory" 
+             class="global-search-item" 
+             [nzValue]="option.title">
+             <a
+               class="global-search-item-desc"
+               [href]="option.url"
+               target="_blank"
+               rel="noopener noreferrer"
+             >
+             <div class="row">
+               <div class="col-12 d-flex align-items-center">
+                   <div class="w-6 p-0">
+                       <img class="dropendImg" [src]="option.urlimg">
+                   </div>
+                     <div class="d-flex flex-column w-auto">
+                       <a class="search-text-description ">{{ option.title }}</a>
+                       <a class="search-text-subcategory">{{option.company}}</a>
+                     </div>
+               </div>
+               
+             </div>
+             </a>
+           </nz-auto-option>
+         </nz-autocomplete>
+        </div>
+          
+      </div>
+      <div class="col-1">
+        <div class="row mt-3">
+          <button class="button-search" nz-button nzType="default" nzSize="large" (click)="showModal = !showModal"><span nz-icon nzType="close" nzTheme="outline"></span></button>
+        </div>
+      </div>
+      </div>
+       
+    </div>
+

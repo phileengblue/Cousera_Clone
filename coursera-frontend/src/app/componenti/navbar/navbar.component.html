@@ -1,0 +1,516 @@
+<div class="navbarCourseraIBUC" [hidden]="!isVisible()"><app-navbar-appredimento></app-navbar-appredimento></div>
+<div style="height: 120px; width: 100%;" [hidden]="!isVisible()"></div> <!-- invisible box-->
+<div style="height: 58px; width: 100%;"[hidden]="isVisible()"></div><!-- invisible box for Mobile and Tablet-->
+<nav class="navbar navbar-expand-lg bg-body-navbar" [ngClass]="{'bg-body-navbarResponsive': !isVisible()}">
+  <div class="container-lg d-flex justify-content-between banckground-color">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand mx-auto " href="#">
+      <div class="nb-brand">
+        <img [src]="pathImg" alt="coursera">
+      </div>
+    </a>
+    <div class="" [hidden]="isVisible()">
+      <app-nav-modal-searchbar />
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="isVisible(); else navbarResponsive">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown ms-lg-3 me-lg-2 nb-mt">
+          <app-nb-button-esplora></app-nb-button-esplora>
+        </li>
+        <li class="nav-item nb-mt" [hidden]="!isVisible()">
+          <app-nav-searchbar></app-nav-searchbar>
+        </li>
+      </ul>
+      <div *ngIf="!isLoggedIn(); else navbarLogIn">
+        <ul class="navbar-nav justify-content-end-lg">
+          <li class="nav-item" [hidden]="!isVisible()">
+            <a class="nav-link nav-tab-link" aria-current="page" href="skill-candidate">Candidature</a>
+          </li>
+          <li class="nav-item" [hidden]="!isVisible()">
+            <a class="nav-link nav-tab-link" aria-current="page" (click)="openCoursesModal()">Corsi in offerta </a>
+          </li>
+          <li class="nav-item" [hidden]="!isVisible()">
+            <a class="nav-link nav-tab-link" href="TrovaCarriera">Trova carriera</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nb-link-accedi" (click)="showModalLogIn()">Accedi</a>
+          </li>
+          <li class="nav-item ">
+            <button class="btn btn-primary btn-navbar fw-bold w-100" type="button" aria-expanded="false"
+              (click)="showModalSignIn()">Iscriviti gratuitamente</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<ng-template #navbarLogIn>
+  <ul class="navbar-nav justify-content-end-lg align-items-center">
+    <li class="nav-item" [hidden]="!isVisible()">
+      <a class="nav-link nav-tab-link" aria-current="page" (click)="openCoursesModal()">Corsi in offerta</a>
+    </li>
+    <li class="nav-item" [hidden]="!isVisible()">
+      <a class="nav-link nav-tab-link" href="TrovaCarriera">Trova carriera</a>
+    </li>
+    <!-- Language dropdown -->
+    <li class="nav-item">
+      <div class="dropdown">
+        <button class="nav-link nav-tab_lang nav-tab_style" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false" (click)="isOnDropdown(0)">
+          <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#5b6680">
+            <path
+              d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 31.5-155.5t86-127Q252-817 325-848.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155t-86 127.5q-54.5 54.5-127 86T480-80Zm0-82q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z" />
+          </svg>
+          {{buttonText}}
+          <svg [ngClass]="{'rotated': isActive[0]}" xmlns="http://www.w3.org/2000/svg" height="30px"
+            viewBox="0 -960 960 960" width="30px" fill="#5b6680">
+            <path d="M480-525 291-336l-51-51 240-240 240 240-51 51-189-189Z" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="changeButtonText('English')">English</a></li>
+          <li><a class="dropdown-item" (click)="changeButtonText('German')">German</a></li>
+          <li><a class="dropdown-item" (click)="changeButtonText('Spanish')">Spanish</a></li>
+          <li><a class="dropdown-item" (click)="changeButtonText('Franciese')">Franciese</a></li>
+          <li><a class="dropdown-item" (click)="changeButtonText('Italian')">Italian</a></li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <li><button class="btn btn-primary btn-navbar dropdown-item " data-bs-toggle="modal"
+              data-bs-target="#Modal-feedback-lang">
+              <span style="width: 20px; height: 20px;"><img
+                  src="../../../assets/icons/translate_20dp_0D6EFD_FILL0_wght400_GRAD0_opsz20.svg" alt=""></span>
+              Aggiungi un feedback sulla traduzione</button></li>
+        </ul>
+      </div>
+    </li>
+    <!-- Notices dropdown-->
+    <li class="nav-item">
+      <div class="dropdown">
+        <button class="nav-link nav-tab_style" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#5b6680">
+            <path
+              d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
+          </svg>
+        </button>
+        <ul class="dropdown-menu" style="height: auto; width: 378px;">
+          <p class="navbar-noticedropdown_headTitle mt-2 ps-2 pe-2">Notifiche</p>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+          <div class="ps-2 mt-5 pe-2">
+            <h2 class="navbar-noticedropdown_bodyTitle ps-2">Nessuna notifica</h2>
+            <p class="navbar-noticedropdown_bodyDescription ps-2">Ti informeremo quando le scadenze si avvicinano o c'è
+              un aggiornamento del corso.</p>
+          </div>
+        </ul>
+      </div>
+    </li>
+
+    <!-- ImgAccount  -->
+    <li class="nav-item">
+      <div class="dropdown">
+        <button class="nav-link nav-tab_lang nav-tab_style" type="button" data-bs-toggle="dropdown"
+          aria-expanded="false" (click)="isOnDropdown(1)">
+          <div class="d-flex justify-content-center">
+            <div class="DIA-boxAccount">
+              <div class="DIA-boxAccount_picture">
+                <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px"
+                  fill="#ffffff">
+                  <path
+                    d="M480-480.67q-66 0-109.67-43.66Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67ZM160-160v-100q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.28 45.3 30.54 14.42 48.96 41.81Q800-296.67 800-260v100H160Zm66.67-66.67h506.66V-260q0-14.33-8.16-27-8.17-12.67-20.5-19-60.67-29.67-114.34-41.83Q536.67-360 480-360t-111 12.17Q314.67-335.67 254.67-306q-12.34 6.33-20.17 19-7.83 12.67-7.83 27v33.33ZM480-547.33q37 0 61.83-24.84Q566.67-597 566.67-634t-24.84-61.83Q517-720.67 480-720.67t-61.83 24.84Q393.33-671 393.33-634t24.84 61.83Q443-547.33 480-547.33Zm0-86.67Zm0 407.33Z" />
+                </svg>
+              </div>
+            </div>
+            <svg [ngClass]="{'rotated': isActive[1]}" xmlns="http://www.w3.org/2000/svg" height="30px"
+              viewBox="0 -960 960 960" width="30px" fill="#5b6680">
+              <path d="M480-525 291-336l-51-51 240-240 240 240-51 51-189-189Z" />
+            </svg>
+          </div>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Profilo</a></li>
+          <li><a class="dropdown-item" href="#">I miei acquisti</a></li>
+          <li><a class="dropdown-item" href="#">Impostazioni</a></li>
+          <li><a class="dropdown-item" href="#">Aggiornamenti</a></li>
+          <li><a class="dropdown-item" href="#">Risultati</a></li>
+          <li><a class="dropdown-item" href="#">Centro assistenza</a></li>
+          <li><a class="dropdown-item" (click)="isLogOut()">Esci</a></li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</ng-template>
+
+<!-- Responsive Navbar for Mobile end Tablet   -->
+<ng-template #navbarResponsive>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbarResp-scrollHeight">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <!-- ImgAccount  -->
+        <li><a class="list-group-item mt-lg-4 nav-btn_dd-textTitle fw-bold ms-3 mt-3" [hidden]="isLoggedIn()" href="skill-candidate">Candidature</a></li>
+        <li class="nav-item" [hidden]="!isLoggedIn()">
+          <div class="dropdown">
+            <button class="nav-link nav-tab_lang nav-tab_style ms-3 mt-3" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" (click)="isOnDropdown(1)">
+              <div class="d-flex justify-content-center">
+                <div class="DIA-boxAccount">
+                  <div class="DIA-boxAccount_picture">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px"
+                      fill="#ffffff">
+                      <path
+                        d="M480-480.67q-66 0-109.67-43.66Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67ZM160-160v-100q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.28 45.3 30.54 14.42 48.96 41.81Q800-296.67 800-260v100H160Zm66.67-66.67h506.66V-260q0-14.33-8.16-27-8.17-12.67-20.5-19-60.67-29.67-114.34-41.83Q536.67-360 480-360t-111 12.17Q314.67-335.67 254.67-306q-12.34 6.33-20.17 19-7.83 12.67-7.83 27v33.33ZM480-547.33q37 0 61.83-24.84Q566.67-597 566.67-634t-24.84-61.83Q517-720.67 480-720.67t-61.83 24.84Q393.33-671 393.33-634t24.84 61.83Q443-547.33 480-547.33Zm0-86.67Zm0 407.33Z" />
+                    </svg>
+                  </div>
+                </div>
+                <svg [ngClass]="{'rotated': isActive[1]}" xmlns="http://www.w3.org/2000/svg" height="30px"
+                  viewBox="0 -960 960 960" width="30px" fill="#5b6680">
+                  <path d="M480-525 291-336l-51-51 240-240 240 240-51 51-189-189Z" />
+                </svg>
+              </div>
+            </button>
+            <ul class="dropdown-menu border-0">
+              <li><a class="dropdown-item nav-btn_dd-textsubTitle" href="#">Profilo</a></li>
+              <li><a class="dropdown-item nav-btn_dd-textsubTitle" href="#">I miei acquisti</a></li>
+              <li><a class="dropdown-item nav-btn_dd-textsubTitle" href="#">Impostazioni</a></li>
+              <li><a class="dropdown-item nav-btn_dd-textsubTitle" href="#">Aggiornamenti</a></li>
+              <li><a class="dropdown-item nav-btn_dd-textsubTitle" href="#">Risultati</a></li>
+              <li><a class="dropdown-item nav-btn_dd-textsubTitle" href="#">Centro assistenza</a></li>
+              <li><a class="dropdown-item nav-btn_dd-textsubTitle" (click)="isLogOut()">Esci</a></li>
+            </ul>
+          </div>
+        </li>
+        <hr>
+        <li class="nav-item dropdown ms-lg-3 me-lg-2 nb-mt">
+          <app-nb-button-esplora-responsive />
+        </li>
+      </ul>
+      <div style="height: 125px;" [hidden]="isLoggedIn()"></div>
+    </div>
+    <div class="navbarResp-divLoginSignUp" [hidden]="isLoggedIn()">
+      <a class="btn btn-primary w-100 mb-1" (click)="showModalLogIn()">Accedi</a>
+      <button class="btn btn-primary btn-navbar fw-bold w-100" type="button" aria-expanded="false"
+        (click)="showModalSignIn()">Iscriviti gratuitamente</button>
+    </div>
+  </div>
+</ng-template>
+
+<!-- LanguageModal  -->
+<div class="modal fade" id="Modal-feedback-lang" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="d-flex justify-content-end pt-2 pb-2">
+        <button type="button" class="btn btn-close_custom d-flex align-items-center fill-custom" data-bs-dismiss="modal"
+          aria-label="Close">
+          Chiudi
+          <svg xmlns="http://www.w3.org/2000/svg" height="25px" viewBox="0 -960 960 960" width="25px">
+            <path
+              d="m291-240-51-51 189-189-189-189 51-51 189 189 189-189 51 51-189 189 189 189-51 51-189-189-189 189Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2 class="nb-btnlang_title">Questa traduzione è accurata?</h2>
+        <p class="nb-btnlang_description pt-2">Il tuo feedback sarà utilizzato per migliorare questa traduzione per
+          altri studenti.</p>
+        <div class="pt-4">
+          <button class="btn btn-primary btn-feedback_custom me-3 fill-custom" type="button">
+            Si
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+              <path
+                d="M720-144H264v-480l288-288 32 22q17 12 26 30.5t5 38.5l-1 5-38 192h264q30 0 51 21t21 51v57q0 8-1.5 14.5T906-467L786.93-187.8Q778-168 760-156t-40 12Zm-384-72h384l120-279v-57H488l49-243-201 201v378Zm0-378v378-378Zm-72-30v72H120v336h144v72H48v-480h216Z" />
+            </svg>
+          </button>
+          <button class="btn btn-primary btn-feedback_custom fill-custom" type="button">
+            No
+            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px">
+              <path
+                d="M240-816h456v480L408-48l-32-22q-17-12-26-30.5t-5-38.5l1-5 38-192H120q-30 0-51-21t-21-51v-57q0-8 1.5-14.5T54-493l119-279q8-20 26.5-32t40.5-12Zm384 72H240L120-465v57h352l-49 243 201-201v-378Zm0 378v-378 378Zm72 30v-72h144v-336H696v-72h216v480H696Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<nz-modal [nzCentered]="true" [(nzVisible)]="isVisibleLogIn" nzTitle="Accedi" [nzFooter]="null"
+  (nzOnCancel)="handleCancel()">
+  <form nz-form [formGroup]="loginForm" (ngSubmit)="handleSubmitLogIn()">
+    <div *nzModalContent class="d-flex flex-column gap-2">
+      <label class="label-custom" for="email">Email</label>
+      <input type="email" id="email" class="btn-custom" placeholder="example@email.com" formControlName="email" required
+        [ngClass]="{
+          'is-invalid':
+            submitted && fLognIn['email'].errors && fLognIn['email'].touched
+        }" />
+
+      <!-- CONTROLLI EMAIL -->
+      <div *ngIf="submitted && fLognIn['email'].errors">
+        <div class="text-danger" *ngIf="fLognIn['email'].errors['required']">
+          Email è richiesta
+        </div>
+        <div class="text-danger" *ngIf="fLognIn['email'].errors['email']">
+          Email non valida
+        </div>
+      </div>
+
+      <label class="label-custom" for="password">Password</label>
+      <div class="password-container">
+        <input class="btn-custom" id="password" placeholder="Inserisci la password" formControlName="password"
+          [type]="passwordService.showPassword ? 'password' : 'text'" required [ngClass]="{
+            'is-invalid':
+              submitted &&
+              fLognIn['password'].errors &&
+              fLognIn['password'].touched
+          }" />
+
+        <!-- TOGGLE PASSWORD -->
+        <button type="button" (click)="togglePasswordVisibility()" class="form-input">
+          <img [src]="
+              passwordService.showPassword
+                ? '../../../assets/images/eye-invisible.svg'
+                : '../../../assets/images/eye-visible.svg'
+            " alt="{{ passwordService.showPassword }}" class="icon-custom" />
+        </button>
+      </div>
+      <a href="#" class="rember-password">Hai dimenticato la password?</a>
+
+      <!-- CONTROLLI PASSWORD -->
+      <div *ngIf="submitted && fLognIn['password'].errors">
+        <div class="text-danger" *ngIf="fLognIn['password'].errors['required']">
+          Password è richiesta
+        </div>
+        <div class="text-danger" *ngIf="fLognIn['password'].errors['minlength']">
+          La password deve essere minima 8 caratteri
+        </div>
+        <div class="text-danger" *ngIf="fLognIn['password'].errors['pattern']">
+          La password deve contenere carattere speciali, numeri, lettere
+          minuscole e maiuscole
+        </div>
+      </div>
+
+      <button nz-button nzType="primary" (click)="handleSubmitLogIn()" [nzLoading]="isSubmitting" class="btn-save"
+        href="Back">
+        Accedi
+      </button>
+
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="hr"></div>
+        <p class="or m-0">o</p>
+        <div class="hr"></div>
+      </div>
+
+      <section class="d-flex flex-column gap-3">
+        <button class="d-flex justify-content-between align-items-center btn-provider"
+          onclick="location.href='/auth/google'">
+          <img src="../../../assets/images/google.svg" alt="Google" class="img-login" />
+          <div class="d-flex text-start me-5 fw-semibold">
+            Continua con Google
+          </div>
+        </button>
+
+        <button class="d-flex justify-content-between align-items-center btn-provider"
+          onclick="location.href='/auth/facebook'">
+          <img src="../../../assets/images/facebook.svg" alt="Facebook" class="img-login" />
+          <div class="d-flex text-start me-4 fw-semibold">
+            Continua con Facebook
+          </div>
+        </button>
+
+        <button class="d-flex justify-content-between align-items-center btn-provider"
+          onclick="location.href='/auth/apple'">
+          <img src="../../../assets/images/apple.svg" alt="Apple" class="img-login" />
+          <div class="d-flex text-start me-5 fw-semibold">
+            Continua con Apple
+          </div>
+        </button>
+      </section>
+
+      <div class="d-flex justify-content-center align-items-center">
+        <span>Non hai mai usato Coursera?
+          <button class="btn-modal" (click)="showModalSignIn()">
+            Iscriviti
+          </button></span>
+      </div>
+
+      <div>
+        <div class="hr my-3"></div>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <a href="#" class="btn-modal">Accedi con la tua organizzazione</a>
+        </div>
+      </div>
+
+      <div class="px-1">
+        <span class="text-foo">Hai problemi di accesso?
+          <a href="#" class="text-foo link">Centro assistenza studenti</a></span>
+      </div>
+
+      <div class="px-1 my-2">
+        <span class="text-foo">
+          Questo sito è protetto da reCAPTCHA Enterprise e si applicano
+          <a href="#" class="text-foo link">Informativa sulla privacy</a> e
+          <a href="#" class="text-foo link">Termini di servizio</a> di Google.
+        </span>
+      </div>
+    </div>
+  </form>
+</nz-modal>
+
+
+<!-- Registarti -->
+<nz-modal [nzCentered]="true" [(nzVisible)]="isVisibleSignIn" nzTitle="Iscriviti" [nzFooter]="null"
+  (nzOnCancel)="handleCancel()">
+  <form nz-form [formGroup]="signinForm" (ngSubmit)="handleSubmitSignIn()">
+    <div *nzModalContent class="d-flex flex-column gap-2">
+      <label class="label-custom" for="firstname">Nome</label>
+      <input type="firstname" id="firstname" formControlName="firstname" placeholder="Nome" id="firstname"
+        class="btn-custom" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['firstname'].errors &&
+            fSignIn['firstname'].touched
+        }" />
+
+      <!-- CONTROLLI FIRST NAME -->
+      <div *ngIf="submittedSignIn && fSignIn['firstname'].errors">
+        <div class="text-danger" *ngIf="fSignIn['firstname'].errors['required']">
+          Nome richiesto
+        </div>
+      </div>
+
+      <label class="label-custom" for="lastname">Cognome</label>
+      <input type="lastname" id="lastname" formControlName="lastname" placeholder="Cognome" id="lastname"
+        class="btn-custom" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['lastname'].errors &&
+            fSignIn['lastname'].touched
+        }" />
+
+      <!-- CONTROLLI LAST NAME -->
+      <div *ngIf="submittedSignIn && fSignIn['lastname'].errors">
+        <div class="text-danger" *ngIf="fSignIn['lastname'].errors['required']">
+          Cognome richiesto
+        </div>
+      </div>
+
+      <label class="label-custom" for="email">Email</label>
+      <input type="email" id="email" placeholder="example@email.com" formControlName="email" id="email"
+        class="btn-custom" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['email'].errors &&
+            fSignIn['email'].touched
+        }" />
+
+      <!-- CONTROLLI EMAIL -->
+      <div *ngIf="submittedSignIn && fSignIn['email'].errors">
+        <div class="text-danger" *ngIf="fSignIn['email'].errors['required']">
+          Email è richiesta
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['email'].errors['email']">
+          Email non valida
+        </div>
+      </div>
+
+      <label class="label-custom" for="password">Password</label>
+      <div class="password-container">
+        <input class="btn-custom" id="password" placeholder="Inserisci la password" minlength="8"
+          formControlName="password" [type]="passwordService.showPassword ? 'password' : 'text'" required [ngClass]="{
+            'is-invalid':
+              submittedSignIn &&
+              fSignIn['password'].errors &&
+              fSignIn['password'].touched
+          }" />
+
+        <!-- TOGGLE PASSWORD -->
+        <button type="button" (click)="togglePasswordVisibility()" class="form-input">
+          <img [src]="
+              passwordService.showPassword
+                ? '../../assets/images/eye-invisible.svg'
+                : '../../assets/images/eye-visible.svg'
+            " alt="{{ passwordService.showPassword }}" class="icon-custom" />
+        </button>
+      </div>
+
+      <!-- CONTROLLI PASSWORD -->
+      <div *ngIf="submittedSignIn && fSignIn['password'].errors">
+        <div class="text-danger" *ngIf="fSignIn['password'].errors['required']">
+          Password è richiesta
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['password'].errors['minlength']">
+          La password deve essere minima 8 caratteri
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['password'].errors['pattern']">
+          La password deve contenere carattere speciali, numeri, lettere
+          minuscole e maiuscole
+        </div>
+      </div>
+
+      <label for="number" class="label-custom">Numero di telefono</label>
+      <input type="text" maxlength="10" pattern="^[0-9]+$" placeholder="Numero" id="number" class="btn-custom"
+        formControlName="phone_number" required [ngClass]="{
+          'is-invalid':
+            submittedSignIn &&
+            fSignIn['phone_number'].errors &&
+            fSignIn['phone_number'].touched
+        }" />
+
+      <!-- CONTROLLI NUMERO DI TELEFONO -->
+      <div *ngIf="submittedSignIn && fSignIn['phone_number'].errors">
+        <div class="text-danger" *ngIf="fSignIn['phone_number'].errors['required']">
+          Numero di telefono richiesto
+        </div>
+
+        <div class="text-danger" *ngIf="fSignIn['phone_number'].errors['pattern']">
+          Numero di telefono non valido
+        </div>
+        <div class="text-danger" *ngIf="fSignIn['phone_number'].errors['maxlength']">
+          Numero di telefono non valido
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between">
+        <div class="d-flex flex-column gap-2">
+          <label for="birth" class="label-custom">Data di nascita</label>
+          <nz-date-picker formControlName="birth_date" id="birth" [nzPlaceHolder]="'dd-mm-yyyy'" nzFormat="dd-MM-yyyy"
+            [nzDisabledDate]="disableDates" [nzDefaultPickerValue]="eighteenYearsAgo"></nz-date-picker>
+
+          <!-- CONTROLLI DATA DI NASCITA -->
+          <div *ngIf="submittedSignIn && fSignIn['birth_date'].errors" class="text-danger">
+            <div *ngIf="fSignIn['birth_date'].errors['required']">
+              Data di nascita obbligatoria
+            </div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column gap-2">
+          <label for="gender" class="label-custom">Gender</label>
+          <nz-select formControlName="gender" nzPlaceHolder="Scegli gender" id="gender">
+            <nz-option *ngFor="let setGender of genders" [nzValue]="setGender.value"
+              [nzLabel]="setGender.label"></nz-option>
+          </nz-select>
+
+          <!-- CONTROLLI GENDER -->
+          <div *ngIf="submittedSignIn && fSignIn['gender'].errors" class="text-danger">
+            <div *ngIf="fSignIn['gender'].errors['required']">
+              Gender obbligatorio
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button nz-button nzType="primary" (click)="handleSubmitSignIn()" [nzLoading]="isSubmittingSignIn"
+        class="btn-save">
+        Registrati
+      </button>
+    </div>
+  </form>
+</nz-modal>
